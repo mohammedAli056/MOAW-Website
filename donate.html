@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Donate | Muslim Association of Woodstock</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#1c1c17",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#f1eee6",
+              "surface-dim": "#dcdad2",
+              "outline-variant": "#bfc9c3",
+              "outline": "#707974",
+              "secondary-container": "#fed65b",
+              "background": "#fcf9f1",
+              "on-secondary-container": "#745c00",
+              "primary-container": "#064e3b",
+              "surface": "#fcf9f1",
+              "primary": "#003527",
+              "on-surface": "#1c1c17",
+              "secondary": "#735c00",
+              "on-surface-variant": "#404944",
+              "primary-fixed": "#b0f0d6",
+              "on-primary": "#ffffff",
+              "surface-container-low": "#f6f3eb"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif", "serif"],
+              "body": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sacred-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 7.5L40 10l-7.5 2.5L30 20l-2.5-7.5L20 10l7.5-2.5z' fill='%23064E3B' fill-opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .nav-text {
+            font-weight: 700;
+            color: rgba(28, 28, 23, 0.72);
+        }
+        .nav-text:hover { color: #064E3B; }
+        .dark .nav-text { color: rgba(236, 253, 245, 0.75); }
+        .dark .nav-text:hover { color: #ecfdf5; }
+        .nav-pill-3d {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1.2rem;
+            font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            letter-spacing: 0.02em;
+            color: #064E3B;
+            background: #ffffff;
+            border: 1px solid #064E3B;
+            border-radius: 0;
+            box-shadow: 5px 5px 0 0 #064E3B;
+            transition: transform 0.14s ease, box-shadow 0.14s ease, background-color 0.14s ease;
+        }
+        .nav-pill-3d:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 0 #064E3B;
+        }
+        .nav-pill-3d:focus-visible {
+            outline: 2px solid #735c00;
+            outline-offset: 3px;
+        }
+        .nav-pill-3d.nav-pill-3d--active {
+            background: #fcf9f1;
+            color: #064E3B;
+            transform: translate(2px, 2px);
+            box-shadow: 3px 3px 0 0 #064E3B;
+        }
+        .dark .nav-pill-3d {
+            color: #ecfdf5;
+            background: #0a3d2e;
+            border: 1px solid #95d3ba;
+            box-shadow: 5px 5px 0 0 #042f24;
+        }
+        .dark .nav-pill-3d:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 0 #042f24;
+        }
+        .dark .nav-pill-3d.nav-pill-3d--active {
+            background: #064e3b;
+            color: #ecfdf5;
+            border-color: #b0f0d6;
+            box-shadow: 3px 3px 0 0 #042f24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<nav class="bg-[#fcf9f1]/80 dark:bg-emerald-950/80 backdrop-blur-md text-[#064E3B] dark:text-[#b0f0d6] top-0 z-50 sticky shadow-sm dark:shadow-none transition-all duration-300">
+<div class="flex flex-wrap justify-between items-center gap-4 w-full px-6 sm:px-8 py-4 max-w-screen-2xl mx-auto">
+<a class="flex items-center gap-3 sm:gap-4 shrink-0 min-w-0" href="index.html" aria-label="Muslim Association of Woodstock, Home">
+<img src="logo-maow.png" alt="" width="200" height="220" decoding="async" class="h-12 sm:h-14 w-auto shrink-0 object-contain object-left"/>
+<span class="text-base sm:text-xl md:text-2xl font-serif text-[#064E3B] dark:text-emerald-50 tracking-tight leading-snug text-left">Muslim Association of Woodstock</span>
+</a>
+<div class="hidden lg:flex items-center gap-6 xl:gap-8 flex-wrap justify-end">
+<a class="nav-text transition-colors" href="index.html">Home</a>
+<a class="nav-text transition-colors" href="about.html">About</a>
+<a class="nav-text transition-colors" href="programs.html">Programs</a>
+<a class="nav-text transition-colors" href="contact.html">Contact</a>
+<span class="hidden xl:inline-block w-px h-6 bg-[#064E3B]/20 dark:bg-emerald-400/30 shrink-0" aria-hidden="true"></span>
+<a class="nav-pill-3d" href="prayertime.html">Prayer Times</a>
+<a class="nav-pill-3d nav-pill-3d--active" href="donate.html">Donate</a>
+</div>
+<div class="flex lg:hidden items-center gap-3">
+<a class="nav-pill-3d text-xs px-3 py-2" href="prayertime.html">Prayer Times</a>
+<a class="nav-pill-3d nav-pill-3d--active text-xs px-3 py-2" href="donate.html">Donate</a>
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#f1eee6]/50 dark:hover:bg-emerald-900/50 p-2 transition-all">menu</span>
+</div>
+</div>
+</nav>
+
+<main class="pt-24 pb-20">
+<section class="relative px-8 py-16 overflow-hidden sacred-pattern">
+<div class="max-w-3xl mx-auto text-center">
+<span class="text-secondary font-bold tracking-widest uppercase text-xs">Sadaqah &amp; support</span>
+<h1 class="font-headline text-4xl md:text-6xl font-black text-primary mt-4 mb-6">Donate</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                Your generosity sustains prayer spaces, programs for families and youth, and outreach across Woodstock and Oxford County. Registered Canadian charity — eligible donations receive a tax receipt.
+            </p>
+</div>
+</section>
+
+<section class="max-w-4xl mx-auto px-8 -mt-4 pb-16">
+<div class="bg-surface-container-lowest border-2 border-[#064E3B] shadow-[8px_8px_0_0_#064E3B] p-10 md:p-14 rounded-none">
+<div class="flex items-start gap-4 mb-10">
+<span class="material-symbols-outlined text-4xl text-primary">volunteer_activism</span>
+<div>
+<h2 class="font-headline text-2xl font-bold text-primary">Give securely via PayPal</h2>
+<p class="text-on-surface-variant mt-2">One-time or recurring gifts help operations, programs, and our long-term home. CRA Business Number: <strong class="text-primary">75330 3916 RR0001</strong>.</p>
+</div>
+</div>
+<a class="inline-flex items-center justify-center gap-2 w-full sm:w-auto font-bold text-lg px-10 py-5 bg-secondary-container text-on-secondary-container border-2 border-[#735c00] shadow-[4px_4px_0_0_#735c00] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_0_#735c00] transition-all rounded-none" href="https://www.paypal.com/donate?hosted_button_id=XZU7V828JTNP8" target="_blank" rel="noopener">
+<span class="material-symbols-outlined">payments</span>
+                Donate with PayPal
+            </a>
+<p class="text-sm text-on-surface-variant mt-6">Questions about zakat, earmarked gifts, or receipts? <a class="font-bold text-primary hover:underline" href="contact.html">Contact us</a>.</p>
+</div>
+
+<div class="grid md:grid-cols-3 gap-6 mt-12">
+<div class="p-6 bg-surface-container rounded-xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary mb-2">mosque</span>
+<h3 class="font-bold text-primary">Prayer &amp; space</h3>
+<p class="text-sm text-on-surface-variant mt-2">Utilities, upkeep, and welcoming everyone for salah and Jumu’ah.</p>
+</div>
+<div class="p-6 bg-surface-container rounded-xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary mb-2">groups</span>
+<h3 class="font-bold text-primary">Programs</h3>
+<p class="text-sm text-on-surface-variant mt-2">Youth, education, and community events that build belonging.</p>
+</div>
+<div class="p-6 bg-surface-container rounded-xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary mb-2">handshake</span>
+<h3 class="font-bold text-primary">Future home</h3>
+<p class="text-sm text-on-surface-variant mt-2">Capital needs as we grow a permanent base for the association.</p>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="bg-[#dcdad2] w-full pt-12 pb-8">
+<div class="max-w-7xl mx-auto px-8 text-center text-sm text-[#1c1c17]/60">
+<p>© 2024 Muslim Association of Woodstock · <a class="hover:text-[#064E3B]" href="contact.html">Contact</a></p>
+</div>
+</footer>
+</body></html>

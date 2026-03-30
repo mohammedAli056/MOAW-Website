@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 
-<html class="scroll-smooth" lang="en"><head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>About Us | Muslim Association of Woodstock</title>
+<title>About | Muslim Association of Woodstock</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -63,9 +62,9 @@
               "primary-fixed-dim": "#95d3ba"
             },
             fontFamily: {
-              "headline": ["Noto Serif"],
-              "body": ["Manrope"],
-              "label": ["Manrope"]
+              "headline": ["Noto Serif", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
             },
             borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
           },
@@ -77,23 +76,75 @@
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
         .sacred-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 7.5L40 10l-7.5 2.5L30 20l-2.5-7.5L20 10l7.5-2.5L30 0zm0 40l2.5 7.5L40 50l-7.5 2.5L30 60l-2.5-7.5L20 50l7.5-2.5L30 40zm20-20l2.5 7.5L60 30l-7.5 2.5L50 40l-2.5-7.5L40 30l7.5-2.5L50 20zM10 20l2.5 7.5L20 30l-7.5 2.5L10 40l-2.5-7.5L0 30l7.5-2.5L10 20z' fill='%23064e3b' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 7.5L40 10l-7.5 2.5L30 20l-2.5-7.5L20 10l7.5-2.5z' fill='%23064E3B' fill-opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .nav-text {
+            font-weight: 700;
+            color: rgba(28, 28, 23, 0.72);
+        }
+        .nav-text:hover { color: #064E3B; }
+        .dark .nav-text { color: rgba(236, 253, 245, 0.75); }
+        .dark .nav-text:hover { color: #ecfdf5; }
+        /* Neo-brutalist nav actions — white tile + solid offset "block" (theme green) */
+        .nav-pill-3d {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1.2rem;
+            font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            letter-spacing: 0.02em;
+            color: #064E3B;
+            background: #ffffff;
+            border: 1px solid #064E3B;
+            border-radius: 0;
+            box-shadow: 5px 5px 0 0 #064E3B;
+            transition: transform 0.14s ease, box-shadow 0.14s ease, background-color 0.14s ease;
+        }
+        .nav-pill-3d:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 0 #064E3B;
+        }
+        .nav-pill-3d:focus-visible {
+            outline: 2px solid #735c00;
+            outline-offset: 3px;
+        }
+        .dark .nav-pill-3d {
+            color: #ecfdf5;
+            background: #0a3d2e;
+            border: 1px solid #95d3ba;
+            box-shadow: 5px 5px 0 0 #042f24;
+        }
+        .dark .nav-pill-3d:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 0 #042f24;
         }
     </style>
 </head>
-<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-[#fcf9f1]/80 dark:bg-emerald-950/80 backdrop-blur-md shadow-sm dark:shadow-none">
-<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-<div class="text-2xl font-black text-[#064E3B] dark:text-emerald-500 font-['Noto_Serif'] tracking-tight">Muslim Association of Woodstock</div>
-<div class="hidden md:flex gap-8 items-center font-['Noto_Serif'] font-bold tracking-tight">
-<a class="text-[#1c1c17]/70 dark:text-emerald-100/70 hover:text-[#735c00] transition-colors duration-300" href="index.html">Home</a>
-<a class="text-[#1c1c17]/70 dark:text-emerald-100/70 hover:text-[#735c00] transition-colors duration-300" href="prayertime.html">Prayer Times</a>
-<a class="text-[#1c1c17]/70 dark:text-emerald-100/70 hover:text-[#735c00] transition-colors duration-300" href="community.html">Community</a>
-<a class="text-[#1c1c17]/70 dark:text-emerald-100/70 hover:text-[#735c00] transition-colors duration-300" href="#">Events</a>
-<a class="text-[#064E3B] dark:text-emerald-400 border-b-2 border-[#735c00] pb-1" href="about.html">About Us</a>
+<nav class="bg-[#fcf9f1]/80 dark:bg-emerald-950/80 backdrop-blur-md text-[#064E3B] dark:text-[#b0f0d6] docked full-width top-0 z-50 sticky shadow-sm dark:shadow-none transition-all duration-300">
+<div class="flex flex-wrap justify-between items-center gap-4 w-full px-6 sm:px-8 py-4 max-w-screen-2xl mx-auto">
+<a class="flex items-center gap-3 sm:gap-4 shrink-0 min-w-0" href="index.html" aria-label="Muslim Association of Woodstock, Home">
+<img src="logo-maow.png" alt="" width="200" height="220" decoding="async" class="h-12 sm:h-14 w-auto shrink-0 object-contain object-left"/>
+<span class="text-base sm:text-xl md:text-2xl font-serif text-[#064E3B] dark:text-emerald-50 tracking-tight leading-snug text-left">Muslim Association of Woodstock</span>
+</a>
+<div class="hidden lg:flex items-center gap-6 xl:gap-8 flex-wrap justify-end">
+<a class="nav-text transition-colors" href="index.html">Home</a>
+<a class="text-[#064E3B] dark:text-[#fed65b] font-bold border-b-2 border-[#735c00] pb-1" href="about.html">About</a>
+<a class="nav-text transition-colors" href="programs.html">Programs</a>
+<a class="nav-text transition-colors" href="contact.html">Contact</a>
+<span class="hidden xl:inline-block w-px h-6 bg-[#064E3B]/20 dark:bg-emerald-400/30 shrink-0" aria-hidden="true"></span>
+<a class="nav-pill-3d" href="prayertime.html">Prayer Times</a>
+<a class="nav-pill-3d" href="donate.html">Donate</a>
 </div>
-<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-bold hover:scale-95 duration-200 ease-in-out transition-all">Donate</button>
+<div class="flex lg:hidden items-center gap-3">
+<a class="nav-pill-3d text-xs px-3 py-2" href="prayertime.html">Prayer Times</a>
+<a class="nav-pill-3d text-xs px-3 py-2" href="donate.html">Donate</a>
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#f1eee6]/50 dark:hover:bg-emerald-900/50 p-2 transition-all">menu</span>
+</div>
 </div>
 </nav>
 <!-- Hero Section -->
@@ -217,8 +268,8 @@
 </div>
 <div class="flex flex-col gap-3">
 <h4 class="font-bold text-[#064E3B] dark:text-emerald-400">Community</h4>
-<a class="text-[#1c1c17]/60 dark:text-emerald-100/50 hover:text-[#735c00] dark:hover:text-emerald-300 transition-all" href="#">Volunteer</a>
-<a class="text-[#1c1c17]/60 dark:text-emerald-100/50 hover:text-[#735c00] dark:hover:text-emerald-300 transition-all" href="#">Contact Support</a>
+<a class="text-[#1c1c17]/60 dark:text-emerald-100/50 hover:text-[#735c00] dark:hover:text-emerald-300 transition-all" href="programs.html">Programs</a>
+<a class="text-[#1c1c17]/60 dark:text-emerald-100/50 hover:text-[#735c00] dark:hover:text-emerald-300 transition-all" href="contact.html">Contact</a>
 </div>
 <div class="space-y-4">
 <h4 class="font-bold text-[#064E3B] dark:text-emerald-400">Subscribe</h4>

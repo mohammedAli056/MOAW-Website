@@ -1,28 +1,14 @@
 <!DOCTYPE html>
 
-<html class="scroll-smooth" lang="en"><head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Prayer Times - Muslim Association of Woodstock</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .sacred-pattern {
-            background-image: radial-gradient(circle at 2px 2px, rgba(115, 92, 0, 0.05) 1px, transparent 0);
-            background-size: 24px 24px;
-        }
-        .glass-header {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-    </style>
 <script id="tailwind-config">
-        tailwind.config = {
+      tailwind.config = {
           darkMode: "class",
           theme: {
             extend: {
@@ -76,35 +62,102 @@
                 "primary-fixed-dim": "#95d3ba"
               },
               fontFamily: {
-                "headline": ["Noto Serif"],
-                "body": ["Manrope"],
-                "label": ["Manrope"]
+                "headline": ["Noto Serif", "serif"],
+                "body": ["Manrope", "sans-serif"],
+                "label": ["Manrope", "sans-serif"]
               },
               borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
             },
           },
         }
-      </script>
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sacred-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 7.5L40 10l-7.5 2.5L30 20l-2.5-7.5L20 10l7.5-2.5z' fill='%23064E3B' fill-opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .nav-text {
+            font-weight: 700;
+            color: rgba(28, 28, 23, 0.72);
+        }
+        .nav-text:hover { color: #064E3B; }
+        .dark .nav-text { color: rgba(236, 253, 245, 0.75); }
+        .dark .nav-text:hover { color: #ecfdf5; }
+        .nav-pill-3d {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1.2rem;
+            font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            letter-spacing: 0.02em;
+            color: #064E3B;
+            background: #ffffff;
+            border: 1px solid #064E3B;
+            border-radius: 0;
+            box-shadow: 5px 5px 0 0 #064E3B;
+            transition: transform 0.14s ease, box-shadow 0.14s ease, background-color 0.14s ease;
+        }
+        .nav-pill-3d:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 0 #064E3B;
+        }
+        .nav-pill-3d:focus-visible {
+            outline: 2px solid #735c00;
+            outline-offset: 3px;
+        }
+        .nav-pill-3d.nav-pill-3d--active {
+            background: #fcf9f1;
+            color: #064E3B;
+            transform: translate(2px, 2px);
+            box-shadow: 3px 3px 0 0 #064E3B;
+        }
+        .dark .nav-pill-3d {
+            color: #ecfdf5;
+            background: #0a3d2e;
+            border: 1px solid #95d3ba;
+            box-shadow: 5px 5px 0 0 #042f24;
+        }
+        .dark .nav-pill-3d:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 0 #042f24;
+        }
+        .dark .nav-pill-3d.nav-pill-3d--active {
+            background: #064e3b;
+            color: #ecfdf5;
+            border-color: #b0f0d6;
+            box-shadow: 3px 3px 0 0 #042f24;
+        }
+    </style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-primary">
 <!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-[#fcf9f1]/80 backdrop-blur-md shadow-sm">
-<nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-<div class="text-2xl font-black text-[#064E3B] font-['Noto_Serif']">
-                Muslim Association of Woodstock
-            </div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="text-[#1c1c17]/70 font-label hover:text-[#735c00] transition-colors duration-300" href="index.html">Home</a>
-<a class="text-[#064E3B] font-['Noto_Serif'] font-bold tracking-tight border-b-2 border-[#735c00] pb-1" href="prayertime.html">Prayer Times</a>
-<a class="text-[#1c1c17]/70 font-label hover:text-[#735c00] transition-colors duration-300" href="community.html">Community</a>
-<a class="text-[#1c1c17]/70 font-label hover:text-[#735c00] transition-colors duration-300" href="#">Events</a>
-<a class="text-[#1c1c17]/70 font-label hover:text-[#735c00] transition-colors duration-300" href="about.html">About Us</a>
+<nav class="bg-[#fcf9f1]/80 dark:bg-emerald-950/80 backdrop-blur-md text-[#064E3B] dark:text-[#b0f0d6] top-0 z-50 sticky shadow-sm dark:shadow-none transition-all duration-300">
+<div class="flex flex-wrap justify-between items-center gap-4 w-full px-6 sm:px-8 py-4 max-w-screen-2xl mx-auto">
+<a class="flex items-center gap-3 sm:gap-4 shrink-0 min-w-0" href="index.html" aria-label="Muslim Association of Woodstock, Home">
+<img src="logo-maow.png" alt="" width="200" height="220" decoding="async" class="h-12 sm:h-14 w-auto shrink-0 object-contain object-left"/>
+<span class="text-base sm:text-xl md:text-2xl font-serif text-[#064E3B] dark:text-emerald-50 tracking-tight leading-snug text-left">Muslim Association of Woodstock</span>
+</a>
+<div class="hidden lg:flex items-center gap-6 xl:gap-8 flex-wrap justify-end">
+<a class="nav-text transition-colors" href="index.html">Home</a>
+<a class="nav-text transition-colors" href="about.html">About</a>
+<a class="nav-text transition-colors" href="programs.html">Programs</a>
+<a class="nav-text transition-colors" href="contact.html">Contact</a>
+<span class="hidden xl:inline-block w-px h-6 bg-[#064E3B]/20 dark:bg-emerald-400/30 shrink-0" aria-hidden="true"></span>
+<a class="nav-pill-3d nav-pill-3d--active" href="prayertime.html">Prayer Times</a>
+<a class="nav-pill-3d" href="donate.html">Donate</a>
 </div>
-<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-semibold hover:scale-95 duration-200 transition-all shadow-md">
-                Donate
-            </button>
+<div class="flex lg:hidden items-center gap-3">
+<a class="nav-pill-3d nav-pill-3d--active text-xs px-3 py-2" href="prayertime.html">Prayer Times</a>
+<a class="nav-pill-3d text-xs px-3 py-2" href="donate.html">Donate</a>
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#f1eee6]/50 dark:hover:bg-emerald-900/50 p-2 transition-all">menu</span>
+</div>
+</div>
 </nav>
-</header>
 <main class="pt-24 pb-16">
 <!-- Hero Section -->
 <section class="max-w-7xl mx-auto px-8 mb-16">
@@ -225,8 +278,8 @@
 <div>
 <h5 class="font-bold text-[#064E3B] mb-4">Get Involved</h5>
 <ul class="space-y-2">
-<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-sm" href="#">Volunteer</a></li>
-<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-sm" href="#">Contact Support</a></li>
+<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-sm" href="programs.html">Programs</a></li>
+<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-sm" href="contact.html">Contact</a></li>
 </ul>
 </div>
 <div>

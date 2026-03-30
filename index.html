@@ -78,23 +78,72 @@
         .sacred-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 7.5L40 10l-7.5 2.5L30 20l-2.5-7.5L20 10l7.5-2.5z' fill='%23064E3B' fill-opacity='0.05'/%3E%3C/svg%3E");
         }
+        .nav-text {
+            font-weight: 700;
+            color: rgba(28, 28, 23, 0.72);
+        }
+        .nav-text:hover { color: #064E3B; }
+        .dark .nav-text { color: rgba(236, 253, 245, 0.75); }
+        .dark .nav-text:hover { color: #ecfdf5; }
+        /* Neo-brutalist nav actions — white tile + solid offset "block" (theme green) */
+        .nav-pill-3d {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1.2rem;
+            font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            letter-spacing: 0.02em;
+            color: #064E3B;
+            background: #ffffff;
+            border: 1px solid #064E3B;
+            border-radius: 0;
+            box-shadow: 5px 5px 0 0 #064E3B;
+            transition: transform 0.14s ease, box-shadow 0.14s ease, background-color 0.14s ease;
+        }
+        .nav-pill-3d:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 0 #064E3B;
+        }
+        .nav-pill-3d:focus-visible {
+            outline: 2px solid #735c00;
+            outline-offset: 3px;
+        }
+        .dark .nav-pill-3d {
+            color: #ecfdf5;
+            background: #0a3d2e;
+            border: 1px solid #95d3ba;
+            box-shadow: 5px 5px 0 0 #042f24;
+        }
+        .dark .nav-pill-3d:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 0 #042f24;
+        }
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 <!-- TopNavBar -->
 <nav class="bg-[#fcf9f1]/80 dark:bg-emerald-950/80 backdrop-blur-md text-[#064E3B] dark:text-[#b0f0d6] docked full-width top-0 z-50 sticky shadow-sm dark:shadow-none transition-all duration-300">
-<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
-<div class="text-2xl font-serif text-[#064E3B] dark:text-emerald-50 tracking-tight">Muslim Association of Woodstock</div>
-<div class="hidden md:flex items-center space-x-8">
+<div class="flex flex-wrap justify-between items-center gap-4 w-full px-6 sm:px-8 py-4 max-w-screen-2xl mx-auto">
+<a class="flex items-center gap-3 sm:gap-4 shrink-0 min-w-0" href="index.html" aria-label="Muslim Association of Woodstock, Home">
+<img src="logo-maow.png" alt="" width="200" height="220" decoding="async" class="h-12 sm:h-14 w-auto shrink-0 object-contain object-left"/>
+<span class="text-base sm:text-xl md:text-2xl font-serif text-[#064E3B] dark:text-emerald-50 tracking-tight leading-snug text-left">Muslim Association of Woodstock</span>
+</a>
+<div class="hidden lg:flex items-center gap-6 xl:gap-8 flex-wrap justify-end">
 <a class="text-[#064E3B] dark:text-[#fed65b] font-bold border-b-2 border-[#735c00] pb-1" href="index.html">Home</a>
-<a class="text-[#1c1c17]/70 dark:text-emerald-100/70 font-medium hover:text-[#064E3B] dark:hover:text-emerald-50 transition-colors" href="prayertime.html">Prayer Times</a>
-<a class="text-[#1c1c17]/70 dark:text-emerald-100/70 font-medium hover:text-[#064E3B] dark:hover:text-emerald-50 transition-colors" href="community.html">Community</a>
-<a class="text-[#1c1c17]/70 dark:text-emerald-100/70 font-medium hover:text-[#064E3B] dark:hover:text-emerald-50 transition-colors" href="#">Zakat</a>
-<a class="text-[#1c1c17]/70 dark:text-emerald-100/70 font-medium hover:text-[#064E3B] dark:hover:text-emerald-50 transition-colors" href="about.html">About Us</a>
+<a class="nav-text transition-colors" href="about.html">About</a>
+<a class="nav-text transition-colors" href="programs.html">Programs</a>
+<a class="nav-text transition-colors" href="contact.html">Contact</a>
+<span class="hidden xl:inline-block w-px h-6 bg-[#064E3B]/20 dark:bg-emerald-400/30 shrink-0" aria-hidden="true"></span>
+<a class="nav-pill-3d" href="prayertime.html">Prayer Times</a>
+<a class="nav-pill-3d" href="donate.html">Donate</a>
 </div>
-<div class="flex items-center space-x-6">
-<a class="bg-primary text-on-primary px-6 py-2 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95 duration-200" href="https://www.paypal.com/donate?hosted_button_id=XZU7V828JTNP8">Donate</a>
-<span class="material-symbols-outlined cursor-pointer hover:bg-[#f1eee6]/50 p-2 rounded-full transition-all">menu</span>
+<div class="flex lg:hidden items-center gap-3">
+<a class="nav-pill-3d text-xs px-3 py-2" href="prayertime.html">Prayer Times</a>
+<a class="nav-pill-3d text-xs px-3 py-2" href="donate.html">Donate</a>
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#f1eee6]/50 dark:hover:bg-emerald-900/50 p-2 transition-all">menu</span>
 </div>
 </div>
 </nav>
@@ -115,12 +164,12 @@
                     The Muslim Association of Woodstock is a not-for-profit organization dedicated to making Woodstock and Oxford County a better place for all.
                 </p>
 <div class="flex gap-4">
-<a class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all active:scale-95 flex items-center gap-2" href="{{DATA:SCREEN:SCREEN_34}}">
+<a class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all active:scale-95 flex items-center gap-2" href="programs.html">
                         Join Our Community
                         <span class="material-symbols-outlined">arrow_forward</span>
 </a>
-<a class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all text-center" href="{{DATA:SCREEN:SCREEN_34}}">
-                        View Services
+<a class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all text-center" href="programs.html">
+                        View Programs
                     </a>
 </div>
 </div>
@@ -196,7 +245,7 @@
 <span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
 <h4 class="text-2xl font-headline font-bold mb-2">Volunteer With Us</h4>
 <p class="text-white/70 text-sm mb-4">Lend your support to pave the path for a better tomorrow.</p>
-<a class="text-secondary-fixed font-bold flex items-center gap-2 hover:underline" href="{{DATA:SCREEN:SCREEN_34}}">
+<a class="text-secondary-fixed font-bold flex items-center gap-2 hover:underline" href="programs.html">
                                     Learn More <span class="material-symbols-outlined">chevron_right</span>
 </a>
 </div>
@@ -240,7 +289,7 @@
 <h2 class="text-4xl font-headline font-bold text-on-surface mb-4">Upcoming Community Events</h2>
 <div class="w-24 h-1 bg-secondary rounded-full"></div>
 </div>
-<a class="text-primary font-bold flex items-center gap-2 hover:translate-x-1 transition-transform" href="{{DATA:SCREEN:SCREEN_34}}">
+<a class="text-primary font-bold flex items-center gap-2 hover:translate-x-1 transition-transform" href="contact.html">
                     Explore Calendar <span class="material-symbols-outlined">event</span>
 </a>
 </div>
@@ -267,7 +316,7 @@
 </div>
 <div class="mt-8 flex justify-between items-center">
 <div class="text-sm font-bold text-on-surface/60">Sep 22 • 10:00 AM</div>
-<a class="material-symbols-outlined bg-surface text-primary p-2 rounded-full border border-outline-variant/20 hover:bg-primary hover:text-white transition-all" href="{{DATA:SCREEN:SCREEN_34}}">add</a>
+<a class="material-symbols-outlined bg-surface text-primary p-2 rounded-full border border-outline-variant/20 hover:bg-primary hover:text-white transition-all" href="contact.html">add</a>
 </div>
 </div>
 <!-- Event 3 -->
@@ -279,7 +328,7 @@
 </div>
 <div class="mt-8 flex justify-between items-center">
 <div class="text-sm font-bold text-on-surface/60">Sep 18 • 6:30 PM</div>
-<a class="material-symbols-outlined bg-surface text-primary p-2 rounded-full border border-outline-variant/20 hover:bg-primary hover:text-white transition-all" href="{{DATA:SCREEN:SCREEN_34}}">add</a>
+<a class="material-symbols-outlined bg-surface text-primary p-2 rounded-full border border-outline-variant/20 hover:bg-primary hover:text-white transition-all" href="contact.html">add</a>
 </div>
 </div>
 <!-- Event 4 -->
@@ -288,7 +337,7 @@
 <h3 class="text-3xl font-headline font-bold mb-2">Support Our New Home</h3>
 <p class="text-primary-fixed/80">Your contribution will assist us in acquiring our own meeting space and a place of worship. All donations are eligible for a tax credit.</p>
 </div>
-<a class="bg-secondary-container text-on-secondary-container px-8 py-3 rounded-xl font-bold whitespace-nowrap hover:scale-105 transition-transform active:scale-95" href="https://www.paypal.com/donate?hosted_button_id=XZU7V828JTNP8">Donate via PayPal</a>
+<a class="bg-secondary-container text-on-secondary-container px-8 py-3 rounded-xl font-bold whitespace-nowrap hover:scale-105 transition-transform active:scale-95" href="donate.html">Donate via PayPal</a>
 </div>
 </div>
 </div>
@@ -303,7 +352,7 @@
                     We believe in putting people first and serving all communities, irrespective of faith, gender, and ethnicity. Join us in building a tolerant, compassionate, and benevolent society.
                 </p>
 <div class="flex flex-col sm:flex-row gap-4">
-<a class="bg-primary text-on-primary px-10 py-5 rounded-xl font-bold text-xl shadow-xl hover:bg-primary-container transition-all text-center" href="https://www.paypal.com/donate?hosted_button_id=XZU7V828JTNP8">Support Now</a>
+<a class="bg-primary text-on-primary px-10 py-5 rounded-xl font-bold text-xl shadow-xl hover:bg-primary-container transition-all text-center" href="donate.html">Support Now</a>
 <div class="flex items-center gap-6 px-4">
 <div class="flex -space-x-3">
 <img alt="Profile photo" class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlFBjMJHflqEysEw8EUIMUgHDHdAWat-e2R4XiYGhmILLxzu22QYSK1WwERbfhEPRtaIKwsXPVSnORcix6c-tIIY7yPsbz5r7CamgJ4fu50oGNSbZPiw4znLV4Et2ZnFJzt3DVpDGNUofJvBS8U007petGg2xUtjy9AZ5ie3npZY2rbS7BH1AZKgwVxG56hUCMoNpaeZ-NOhdygdvYYW8XcIBqnyGMjZ4y9Cwk0dhBesk5HMu2NdhvTuxjkCMjmGnGel25g13MdJ7q"/>
@@ -334,11 +383,11 @@
 <div class="space-y-6">
 <h4 class="font-serif font-bold text-lg">Quick Links</h4>
 <ul class="space-y-4">
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors" href="{{DATA:SCREEN:SCREEN_34}}">About Us</a></li>
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors" href="{{DATA:SCREEN:SCREEN_2}}">Prayer Schedule</a></li>
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors" href="{{DATA:SCREEN:SCREEN_34}}">Community Programs</a></li>
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors" href="{{DATA:SCREEN:SCREEN_38}}">Zakat</a></li>
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors font-bold" href="https://www.paypal.com/donate?hosted_button_id=XZU7V828JTNP8">Support Us</a></li>
+<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors" href="about.html">About</a></li>
+<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors" href="prayertime.html">Prayer Times</a></li>
+<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors" href="programs.html">Programs</a></li>
+<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors" href="contact.html">Contact</a></li>
+<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors font-bold" href="donate.html">Donate</a></li>
 </ul>
 </div>
 <div class="space-y-6">
@@ -346,7 +395,7 @@
 <ul class="space-y-4">
 <li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors underline" href="#">Privacy Policy</a></li>
 <li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors" href="#">Terms of Service</a></li>
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors" href="{{DATA:SCREEN:SCREEN_34}}">Volunteer</a></li>
+<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#064E3B] transition-colors" href="contact.html">Volunteer</a></li>
 </ul>
 </div>
 <div class="space-y-6">
