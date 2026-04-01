@@ -133,9 +133,14 @@
             background-color: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(4px);
             animation: fadeIn 0.3s ease;
+            overflow-y: auto;
         }
         .poster-modal.active {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 500px;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -143,13 +148,11 @@
         }
         .poster-modal-content {
             margin: auto;
-            width: 90%;
-            max-width: 500px;
+            width: 100%;
+            max-width: 450px;
+            max-height: 70vh;
             animation: slideUp 0.4s ease;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            position: relative;
         }
         .poster-modal-content img {
             width: 100%;
@@ -158,22 +161,28 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
         .poster-close-btn {
-            position: absolute;
+            position: fixed;
             top: 20px;
-            right: 20px;
+            right: 5%;
             color: white;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
             cursor: pointer;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             border: none;
-            padding: 8px 16px;
-            border-radius: 50%;
+            padding: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s ease;
+            z-index: 100;
+            border-radius: 50%;
         }
         .poster-close-btn:hover {
+            transform: scale(1.2);
             background: rgba(0, 0, 0, 0.8);
-            transform: scale(1.1);
         }
         .poster-thumbnail {
             cursor: pointer;
@@ -276,7 +285,7 @@ window.addEventListener('scroll', () => {
 <!-- Hero Section -->
 <section class="relative min-h-[870px] flex items-center overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img alt="Main prayer hall of the Muslim Association of Woodstock with traditional red prayer carpets" class="w-full h-full object-cover brightness-[0.7]" src="https://lh3.googleusercontent.com/aida/ADBb0uj9Xg7vQaqzZ5Zzngv7uYdBpLDqOO5T0X_RGJdee3VC9hHUQfOfKsSSJDYoTJu45lzT7rvoqXdKc7sIqa3w00bewEZHL5iF89n-tUv-USkx5Lgp5eRInoWY-r9Wu1zpa_ZLd9njdz7fP6OClA8Ox3Rut0qqkN-aGDQ799n48euHzNZV5L5YEugQsU9TmOP-K_GMg10hemtUYlGOdkim1o-GzTCihuP7wIqrw9nnlQ311Jw2qIKw1BitnI6w4QeccvJAjzNABzxQ-g0"/>
+<img alt="Main prayer hall of the Muslim Association of Woodstock with traditional red prayer carpets" class="w-full h-full object-cover brightness-[0.7]" src="cover.jpeg"/>
 <div class="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent"></div>
 </div>
 <div class="relative z-10 max-w-screen-2xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -307,29 +316,51 @@ window.addEventListener('scroll', () => {
                         Live: Dhuhr
                     </div>
 </div>
-<div class="space-y-4">
-<div class="flex justify-between items-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
-<span class="text-white/80 font-medium">Fajr</span>
-<span class="text-white font-bold text-lg">05:42 AM</span>
+<div class="space-y-3">
+<div class="flex justify-between items-center px-0 py-2 border-b border-white/20 text-white/60 text-xs font-medium">
+<span>PRAYER</span>
+<div class="flex gap-12 pr-2">
+<span class="w-20 text-right">ADHAN</span>
+<span class="w-20 text-right">IQAMA</span>
 </div>
-<div class="flex justify-between items-center p-4 rounded-xl bg-primary-container text-white shadow-lg border border-primary-fixed/30 transform scale-[1.02]">
+</div>
+<div class="flex justify-between items-center py-3">
+<span class="text-white/80 font-medium">Fajr</span>
+<div class="flex gap-12">
+<span class="text-white text-base w-20 text-right">05:42 AM</span>
+<span class="text-white font-bold text-base w-20 text-right">05:55 AM</span>
+</div>
+</div>
+<div class="flex justify-between items-center py-3 px-4 rounded-xl bg-primary-container text-white shadow-lg border border-primary-fixed/30 transform scale-[1.02]">
 <span class="font-bold flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
-                            Dhuhr
-                        </span>
-<span class="font-extrabold text-xl">01:15 PM</span>
+Dhuhr
+</span>
+<div class="flex gap-12">
+<span class="font-normal text-lg w-20 text-right">01:15 PM</span>
+<span class="font-extrabold text-lg w-20 text-right">01:30 PM</span>
 </div>
-<div class="flex justify-between items-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+</div>
+<div class="flex justify-between items-center py-3">
 <span class="text-white/80 font-medium">Asr</span>
-<span class="text-white font-bold text-lg">04:45 PM</span>
+<div class="flex gap-12">
+<span class="text-white text-base w-20 text-right">04:45 PM</span>
+<span class="text-white font-bold text-base w-20 text-right">05:00 PM</span>
 </div>
-<div class="flex justify-between items-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+</div>
+<div class="flex justify-between items-center py-3">
 <span class="text-white/80 font-medium">Maghrib</span>
-<span class="text-white font-bold text-lg">07:22 PM</span>
+<div class="flex gap-12">
+<span class="text-white text-base w-20 text-right">07:22 PM</span>
+<span class="text-white font-bold text-base w-20 text-right">07:35 PM</span>
 </div>
-<div class="flex justify-between items-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+</div>
+<div class="flex justify-between items-center py-3">
 <span class="text-white/80 font-medium">Isha</span>
-<span class="text-white font-bold text-lg">08:50 PM</span>
+<div class="flex gap-12">
+<span class="text-white text-base w-20 text-right">08:50 PM</span>
+<span class="text-white font-bold text-base w-20 text-right">09:05 PM</span>
+</div>
 </div>
 </div>
 <div class="mt-8 pt-6 border-t border-white/10 text-center">
@@ -363,9 +394,9 @@ window.addEventListener('scroll', () => {
 </div>
 <div class="lg:col-span-6">
 <div class="grid grid-cols-2 gap-4 h-[550px]">
-<img alt="Inside the prayer hall showing the Minbar and prayer rows" class="w-full h-full object-cover rounded-2xl shadow-xl" src="https://lh3.googleusercontent.com/aida/ADBb0uhar3mk_nSEj3HB6NvY-Ja4P-PUQwBuRWJTJGMQfyjQBgHMiPhXWdMIvQr3gfeUFJE29YPcGWG2APp_yZfw9tt3LoDHuAtdBUnUEYQiVpT3LDA6buKgoul6AxbFGRQ5fy8zAMsUtzcD6ToLTvKty2AMCqXBD2W0kncdjOBrIiw-0phzW--NOPXnfHb5mt--xmBPlT0v_yoC-5k-YAGZDrW5-efwmGI_A2_sy3HAqgS2yyHa_CMrXzC3R0LQ8ky83txFnox-VibXJEw"/>
+<img alt="Inside the prayer hall showing the Minbar and prayer rows" class="w-full h-full object-cover rounded-2xl shadow-xl" src="serve1.jpeg"/>
 <div class="grid grid-rows-2 gap-4">
-<img alt="Entrance to the women's section at the Woodstock mosque" class="w-full h-full object-cover rounded-2xl shadow-xl" src="https://lh3.googleusercontent.com/aida/ADBb0ugr6FNqbIAJt59iMOFBdDc3Sh1YBv5pVvjHKaUskFMVDxZSLPSM1acccA3oZd4pCsFQpN97XFFfeW2GXQASHWdmfvnOko9tCDpm2Yh38_mxLbTugUmLXNIPhvJbXaCJJUi3u6jiBZWYOODiZdo-Z4EiodS-5pyK965S5uOn9AgpArioUjR3wwR5CbpyAUEsF5-q-40xe9n95b3ZtSHrYmliXeY6h4BifEmczwL7OFNifu-ccq9E4O53uMKr8l0tFzdfozrtluakTQ"/>
+<img alt="Entrance to the women's section at the Woodstock mosque" class="w-full h-full object-cover rounded-2xl shadow-xl" src="serve2.jpeg"/>
 <div class="bg-primary p-8 rounded-2xl flex flex-col justify-center text-white">
 <span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
 <h4 class="text-2xl font-headline font-bold mb-2">Volunteer With Us</h4>
@@ -386,7 +417,7 @@ window.addEventListener('scroll', () => {
 <h2 class="text-3xl font-headline font-bold text-primary mb-8">Our Community Spaces</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 <div class="rounded-2xl overflow-hidden shadow-lg h-64 relative group">
-<img alt="Main Prayer Hall" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="mainHall.jpeg"/>
+<img alt="Main Prayer Hall" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="cover.jpeg"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
 <span class="text-white font-bold px-4 py-2 bg-primary/80 rounded-lg">Main Hall</span>
 </div>
@@ -421,14 +452,14 @@ window.addEventListener('scroll', () => {
 <div class="absolute inset-0 z-0">
 <img alt="River sunset background" class="absolute inset-0 w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwk-YECS13fQ9NuxEL6_2t39CKhq7DdxmYFKggAKjPcYflqF0AggjLR4WZQ76ntJorBWnRJXz9HeOvYEDtEKQJhLh8CgKknpti_L7fZ_CnwTEoyu7FuOUm67Yg4D8qtRcwqUVrkpFSTJqOP6ESJhDfy8kSshQLw09JU8Z9aBv0bpvt7sPVbl4Ty-fn0Mi1wkPqYrQAVTCfw1F76OpnFKDsFNNxIjsim9nxRCvA3Q1qsgAhzmTp3QnY5ey1ZTzzoxfi8p_b2kPkoAZ1"/>
 </div>
-<div class="relative z-10 p-10 max-w-2xl h-full flex flex-col justify-center">
+<div class="relative z-10 p-6 md:p-10 max-w-2xl h-full flex flex-col justify-center">
 <div class="flex gap-2 mb-6">
 <span class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded text-xs font-bold uppercase tracking-widest">Youth</span>
 <span class="bg-white/20 backdrop-blur-md text-white px-4 py-1.5 rounded text-xs font-bold uppercase">Apr 3</span>
 </div>
-<h3 class="text-5xl font-headline font-bold mb-6 text-white leading-tight">Why We Pray &amp; the Fiqh of Salah</h3>
-<p class="text-white/95 leading-relaxed text-lg mb-2">Asr to Isha • Youth Program (Ages 13-25)</p>
-<p class="text-white/90 leading-relaxed text-lg">Completely FREE • Pizza &amp; Refreshments Provided</p>
+<h3 class="text-3xl md:text-5xl font-headline font-bold mb-6 text-white leading-tight">Why We Pray &amp; the Fiqh of Salah</h3>
+<p class="text-white/95 leading-relaxed text-base md:text-lg mb-2">Asr to Isha • Youth Program (Ages 13-25)</p>
+<p class="text-white/90 leading-relaxed text-base md:text-lg">Completely FREE • Pizza &amp; Refreshments Provided</p>
 </div>
 <div class="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-10 overflow-hidden rounded-2xl shadow-2xl h-[340px] w-[240px] poster-thumbnail" onclick="openPosterModal()">
 <img alt="Youth Program Poster - Click to view full size" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="youth-program-poster.jpg"/>
@@ -593,4 +624,5 @@ document.addEventListener('keydown', function(event) {
     }
 });
 </script>
+
 </body></html>
