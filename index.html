@@ -78,19 +78,6 @@
         .sacred-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 7.5L40 10l-7.5 2.5L30 20l-2.5-7.5L20 10l7.5-2.5z' fill='%234B3621' fill-opacity='0.05'/%3E%3C/svg%3E");
         }
-        /* Prayer Times Highlighting - CURRENT Prayer */
-        .prayer-highlight {
-            background: linear-gradient(135deg, #1a5d4a 0%, #0d3d2c 100%) !important;
-            border: none !important;
-            border-radius: 16px !important;
-            padding: 12px 16px !important;
-            box-shadow: 0 4px 12px rgba(26, 93, 74, 0.4);
-            margin: 4px 0 !important;
-        }
-        .highlighted {
-            color: #c7f0ea !important;
-            font-weight: 600 !important;
-        }
         .nav-text {
             font-weight: 700;
             color: rgba(75, 54, 33, 0.72);
@@ -326,7 +313,7 @@ window.addEventListener('scroll', () => {
 <h2 class="text-lg sm:text-xl md:text-2xl font-headline font-bold text-white">Prayer Times</h2>
 <div class="flex items-center text-secondary-fixed text-xs sm:text-sm font-bold bg-secondary/20 px-2 sm:px-3 py-1 rounded-full">
 <span class="mr-2 inline-block w-2 h-2 bg-secondary-fixed rounded-full animate-pulse"></span>
-                        <span data-live-badge>Live: Dhuhr</span>
+                        Live: Dhuhr
                     </div>
 </div>
 <div class="space-y-2 sm:space-y-3">
@@ -340,44 +327,44 @@ window.addEventListener('scroll', () => {
 <div class="flex justify-between items-center py-2 sm:py-3">
 <span class="text-white/80 font-medium text-sm sm:text-base">Fajr</span>
 <div class="flex gap-4 sm:gap-8 md:gap-12">
-<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="fajr" data-time-type="adhan">05:42 AM</span>
-<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="fajr" data-time-type="iqama">05:55 AM</span>
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">05:42 AM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">05:55 AM</span>
 </div>
 </div>
-<div class="flex justify-between items-center py-2 sm:py-3">
-<span class="text-white/80 font-medium text-sm sm:text-base flex items-center gap-1 sm:gap-2">
+<div class="flex justify-between items-center py-2 sm:py-3 px-2 sm:px-4 rounded-xl bg-primary-container text-white shadow-lg border border-primary-fixed/30 transform scale-[1.02]">
+<span class="font-bold flex items-center gap-1 sm:gap-2 text-sm sm:text-base">
 <span class="material-symbols-outlined text-secondary-fixed text-sm sm:text-base" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
 Dhuhr
 </span>
 <div class="flex gap-4 sm:gap-8 md:gap-12">
-<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="dhuhr" data-time-type="adhan">01:15 PM</span>
-<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="dhuhr" data-time-type="iqama">01:30 PM</span>
+<span class="font-normal text-sm sm:text-lg w-16 sm:w-20 text-right">01:15 PM</span>
+<span class="font-extrabold text-sm sm:text-lg w-16 sm:w-20 text-right">01:30 PM</span>
 </div>
 </div>
 <div class="flex justify-between items-center py-2 sm:py-3">
 <span class="text-white/80 font-medium text-sm sm:text-base">Asr</span>
 <div class="flex gap-4 sm:gap-8 md:gap-12">
-<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="asr" data-time-type="adhan">04:45 PM</span>
-<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="asr" data-time-type="iqama">05:00 PM</span>
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">04:45 PM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">05:00 PM</span>
 </div>
 </div>
 <div class="flex justify-between items-center py-2 sm:py-3">
 <span class="text-white/80 font-medium text-sm sm:text-base">Maghrib</span>
 <div class="flex gap-4 sm:gap-8 md:gap-12">
-<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="maghrib" data-time-type="adhan">07:22 PM</span>
-<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="maghrib" data-time-type="iqama">07:35 PM</span>
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">07:22 PM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">07:35 PM</span>
 </div>
 </div>
 <div class="flex justify-between items-center py-2 sm:py-3">
 <span class="text-white/80 font-medium text-sm sm:text-base">Isha</span>
 <div class="flex gap-4 sm:gap-8 md:gap-12">
-<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="isha" data-time-type="adhan">08:50 PM</span>
-<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="isha" data-time-type="iqama">09:05 PM</span>
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">08:50 PM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">09:05 PM</span>
 </div>
 </div>
 </div>
 <div class="mt-4 sm:mt-6 md:mt-8 pt-3 sm:pt-4 md:pt-6 border-t border-white/10 text-center">
-<p class="text-white/60 text-xs sm:text-sm">Friday Khutbah: 1:30 PM &amp; 2:30 PM</p>
+<p class="text-white/60 text-xs sm:text-sm">Friday Khutbah: 1:30 PM</p>
 </div>
 </div>
 </div>
@@ -630,6 +617,5 @@ document.addEventListener('keydown', function(event) {
     }
 });
 </script>
-<script src="prayer-times.js"></script>
 
 </body></html>
