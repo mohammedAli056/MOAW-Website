@@ -148,6 +148,39 @@ class PrayerTimesManager {
 
     // Add highlighting to next prayer
     this.addHighlight(nextPrayer);
+
+    // Update live prayer indicator
+    this.updateLiveIndicator(nextPrayer);
+  }
+
+  updateLiveIndicator(prayerName) {
+    // Format prayer name with capital first letter
+    const displayName = prayerName.charAt(0).toUpperCase() + prayerName.slice(1);
+
+    // Update index.html live indicator
+    const liveIndicator = document.getElementById('live-prayer-name');
+    if (liveIndicator) {
+      liveIndicator.textContent = `Live: ${displayName}`;
+    }
+
+    // Update prayertime.html current prayer display
+    const currentPrayerDisplay = document.getElementById('current-prayer-display');
+    if (currentPrayerDisplay) {
+      const times = this.prayerData[this.getCurrentDate()];
+      if (times) {
+        const prayerData = {
+          fajr: { adhan: times.fajr_begins, iqama: times.fajr_jamah },
+          dhuhr: { adhan: times.zuhr_begins, iqama: times.zuhr_jamah },
+          asr: { adhan: times.asr_begins, iqama: times.asr_jamah },
+          maghrib: { adhan: times.maghrib_begins, iqama: times.maghrib_jamah },
+          isha: { adhan: times.isha_begins, iqama: times.isha_jamah }
+        };
+        const prayer = prayerData[prayerName];
+        if (prayer) {
+          currentPrayerDisplay.textContent = `Next Prayer: ${displayName} (Iqama: ${this.convertTo12Hour(prayer.iqama)})`;
+        }
+      }
+    }
   }
 
   addHighlight(prayerName) {
