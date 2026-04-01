@@ -124,21 +124,43 @@ class PrayerTimesManager {
       { name: 'isha', iqama: times.isha_jamah }
     ];
 
-    // Find next prayer
-    let nextPrayer = null;
-    for (let prayer of prayerTimes) {
-      const [hours, minutes] = prayer.iqama.split(':');
-      const prayerTime = parseInt(hours) * 100 + parseInt(minutes);
+    // Find CURRENT prayer (between its iqama and next prayer's iqama)
+    let currentPrayer = null;
+    
+    for (let i = 0; i < prayerTimes.length; i++) {
+      const [hours, minutes] = prayerTimes[i].iqama.split(':');
+      const prayerIqamaTime = parseInt(hours) * 100 + parseInt(minutes);
+      
+      // Get next prayer's iqama time
+      let nextPrayerIqamaTime;
+      if (i === prayerTimes.length - 1) {
+        // For Isha, next is Fajr (next day, so consider it as very late)
+        nextPrayerIqamaTime = 2400; // Treat as next day
+      } else {
+        const [nextHours, nextMinutes] = prayerTimes[i + 1].iqama.split(':');
+        nextPrayerIqamaTime = parseInt(nextHours) * 100 + parseInt(nextMinutes);
+      }
 
-      if (prayerTime > currentTime) {
-        nextPrayer = prayer.name;
+      // Check if current time is within this prayer's time window
+      if (currentTime >= prayerIqamaTime && currentTime < nextPrayerIqamaTime) {
+        currentPrayer = prayerTimes[i].name;
         break;
       }
     }
 
-    // If no prayer found (after Isha), next is Fajr
-    if (!nextPrayer) {
-      nextPrayer = 'fajr';
+    // If no prayer found (before Fajr or after Isha)
+    if (!currentPrayer) {
+      // Check if we're before Fajr (late night)
+      const [fajrHours, fajrMinutes] = prayerTimes[0].iqama.split(':');
+      const fajrTime = parseInt(fajrHours) * 100 + parseInt(fajrMinutes);
+      
+      if (currentTime < fajrTime) {
+        // Before Fajr - show Isha as current
+        currentPrayer = 'isha';
+      } else {
+        // After Isha - show Fajr as next (but won't highlight until after midnight)
+        currentPrayer = null;
+      }
     }
 
     // Remove highlighting from all prayers
@@ -146,41 +168,31 @@ class PrayerTimesManager {
       this.removeHighlight(prayer);
     });
 
-    // Add highlighting to next prayer
-    this.addHighlight(nextPrayer);
-
-    // Update live prayer indicator
-    this.updateLiveIndicator(nextPrayer);
+    // Add highlighting to current prayer only
+    if (currentPrayer) {
+      this.addHighlight(currentPrayer);
+      this.updateLiveBadge(currentPrayer);
+    }
   }
 
-  updateLiveIndicator(prayerName) {
-    // Format prayer name with capital first letter
-    const displayName = prayerName.charAt(0).toUpperCase() + prayerName.slice(1);
+  updateLiveBadge(prayerName) {
+    // Update the live badge in index.html
+    const badges = document.querySelectorAll('[data-live-badge]');
+    badges.forEach(badge => {
+      const prayerLabel = this.getPrayerLabel(prayerName);
+      badge.textContent = `Live: ${prayerLabel}`;
+    });
+  }
 
-    // Update index.html live indicator
-    const liveIndicator = document.getElementById('live-prayer-name');
-    if (liveIndicator) {
-      liveIndicator.textContent = `Live: ${displayName}`;
-    }
-
-    // Update prayertime.html current prayer display
-    const currentPrayerDisplay = document.getElementById('current-prayer-display');
-    if (currentPrayerDisplay) {
-      const times = this.prayerData[this.getCurrentDate()];
-      if (times) {
-        const prayerData = {
-          fajr: { adhan: times.fajr_begins, iqama: times.fajr_jamah },
-          dhuhr: { adhan: times.zuhr_begins, iqama: times.zuhr_jamah },
-          asr: { adhan: times.asr_begins, iqama: times.asr_jamah },
-          maghrib: { adhan: times.maghrib_begins, iqama: times.maghrib_jamah },
-          isha: { adhan: times.isha_begins, iqama: times.isha_jamah }
-        };
-        const prayer = prayerData[prayerName];
-        if (prayer) {
-          currentPrayerDisplay.textContent = `Next Prayer: ${displayName} (Iqama: ${this.convertTo12Hour(prayer.iqama)})`;
-        }
-      }
-    }
+  getPrayerLabel(prayer) {
+    const labels = {
+      'fajr': 'Fajr',
+      'dhuhr': 'Dhuhr',
+      'asr': 'Asr',
+      'maghrib': 'Maghrib',
+      'isha': 'Isha'
+    };
+    return labels[prayer] || 'Prayer';
   }
 
   addHighlight(prayerName) {
@@ -188,18 +200,20 @@ class PrayerTimesManager {
     const prayerElements = document.querySelectorAll(`[data-prayer="${prayerName}"]`);
     
     prayerElements.forEach(el => {
-      // For table rows
+      el.classList.add('highlighted');
+      
+      // For table rows - add class to the row
       if (el.tagName === 'TD') {
         const row = el.closest('tr');
         if (row) {
           row.classList.add('prayer-highlight');
         }
       }
-      // For divs (index.html)
-      else if (el.tagName === 'SPAN' || el.tagName === 'DIV') {
-        // Find the parent flex container (the immediate parent div that contains both prayer name and times)
+      // For spans in divs - add class to parent flex container
+      else if (el.tagName === 'SPAN') {
+        // Find the closest flex justify-between container
         let parent = el.parentElement;
-        while (parent && parent.tagName !== 'SECTION') {
+        while (parent) {
           if (parent.classList.contains('flex') && parent.classList.contains('justify-between')) {
             parent.classList.add('prayer-highlight');
             break;
@@ -207,9 +221,6 @@ class PrayerTimesManager {
           parent = parent.parentElement;
         }
       }
-      
-      // Add highlighted class to the element itself
-      el.classList.add('highlighted');
     });
   }
 
@@ -217,6 +228,8 @@ class PrayerTimesManager {
     const prayerElements = document.querySelectorAll(`[data-prayer="${prayerName}"]`);
     
     prayerElements.forEach(el => {
+      el.classList.remove('highlighted');
+      
       // For table rows
       if (el.tagName === 'TD') {
         const row = el.closest('tr');
@@ -224,10 +237,10 @@ class PrayerTimesManager {
           row.classList.remove('prayer-highlight');
         }
       }
-      // For divs (index.html)
-      else if (el.tagName === 'SPAN' || el.tagName === 'DIV') {
+      // For spans in divs
+      else if (el.tagName === 'SPAN') {
         let parent = el.parentElement;
-        while (parent && parent.tagName !== 'SECTION') {
+        while (parent) {
           if (parent.classList.contains('flex') && parent.classList.contains('justify-between')) {
             parent.classList.remove('prayer-highlight');
             break;
@@ -235,8 +248,6 @@ class PrayerTimesManager {
           parent = parent.parentElement;
         }
       }
-      
-      el.classList.remove('highlighted');
     });
   }
 }

@@ -78,20 +78,16 @@
         .sacred-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 7.5L40 10l-7.5 2.5L30 20l-2.5-7.5L20 10l7.5-2.5z' fill='%234B3621' fill-opacity='0.05'/%3E%3C/svg%3E");
         }
-        /* Prayer Times Highlighting */
+        /* Prayer Times Highlighting - CURRENT Prayer */
         .prayer-highlight {
-            background: linear-gradient(135deg, rgba(0, 53, 39, 0.3), rgba(43, 105, 84, 0.3)) !important;
-            border: 2px solid rgba(176, 240, 214, 0.5) !important;
+            background: linear-gradient(135deg, rgba(43, 105, 84, 0.6), rgba(0, 53, 39, 0.6)) !important;
+            border: 2px solid #2b6954 !important;
             border-radius: 12px;
-            animation: pulse-highlight 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(43, 105, 84, 0.4);
         }
         .highlighted {
-            font-weight: bold;
             color: #b0f0d6 !important;
-        }
-        @keyframes pulse-highlight {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(176, 240, 214, 0.7); }
-            50% { box-shadow: 0 0 0 8px rgba(176, 240, 214, 0); }
+            font-weight: bold;
         }
         .nav-text {
             font-weight: 700;
@@ -326,9 +322,9 @@ window.addEventListener('scroll', () => {
 <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 md:mb-8 gap-2 sm:gap-0">
 <h2 class="text-lg sm:text-xl md:text-2xl font-headline font-bold text-white">Prayer Times</h2>
-<div id="live-prayer-indicator" class="flex items-center text-secondary-fixed text-xs sm:text-sm font-bold bg-secondary/20 px-2 sm:px-3 py-1 rounded-full">
+<div class="flex items-center text-secondary-fixed text-xs sm:text-sm font-bold bg-secondary/20 px-2 sm:px-3 py-1 rounded-full">
 <span class="mr-2 inline-block w-2 h-2 bg-secondary-fixed rounded-full animate-pulse"></span>
-                        <span id="live-prayer-name">Live: Dhuhr</span>
+                        <span data-live-badge>Live: Dhuhr</span>
                     </div>
 </div>
 <div class="space-y-2 sm:space-y-3">

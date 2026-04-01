@@ -78,20 +78,16 @@
         .sacred-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 7.5L40 10l-7.5 2.5L30 20l-2.5-7.5L20 10l7.5-2.5z' fill='%234B3621' fill-opacity='0.05'/%3E%3C/svg%3E");
         }
-        /* Prayer Times Highlighting */
+        /* Prayer Times Highlighting - CURRENT Prayer */
         .prayer-highlight {
-            background: linear-gradient(135deg, rgba(0, 53, 39, 0.3), rgba(43, 105, 84, 0.3)) !important;
-            border: 2px solid rgba(176, 240, 214, 0.5) !important;
+            background: linear-gradient(135deg, rgba(43, 105, 84, 0.6), rgba(0, 53, 39, 0.6)) !important;
+            border: 2px solid #2b6954 !important;
             border-radius: 4px;
-            animation: pulse-highlight 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(43, 105, 84, 0.4);
         }
         .highlighted {
-            font-weight: bold;
             color: #003527 !important;
-        }
-        @keyframes pulse-highlight {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(176, 240, 214, 0.7); }
-            50% { box-shadow: 0 0 0 8px rgba(176, 240, 214, 0); }
+            font-weight: bold;
         }
         .nav-text {
             font-weight: 700;
@@ -249,7 +245,6 @@ window.addEventListener('scroll', () => {
 <div>
 <h2 class="font-headline text-2xl sm:text-3xl md:text-4xl text-primary font-bold">Daily Schedule</h2>
 <p class="text-on-surface-variant font-medium text-sm sm:text-base">Woodstock, Ontario</p>
-<p id="current-prayer-display" class="text-primary font-bold text-sm sm:text-base mt-2 sm:mt-3"></p>
 </div>
 <div class="text-left sm:text-right">
 <span class="inline-flex items-center px-3 sm:px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs sm:text-sm font-bold">
