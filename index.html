@@ -313,10 +313,10 @@ window.addEventListener('scroll', () => {
 <h2 class="text-2xl font-headline font-bold text-white">Prayer Times</h2>
 <div class="flex items-center text-secondary-fixed text-sm font-bold bg-secondary/20 px-3 py-1 rounded-full">
 <span class="mr-2 inline-block w-2 h-2 bg-secondary-fixed rounded-full animate-pulse"></span>
-                        Live: Dhuhr
-                    </div>
+<span id="livePrayerBadge">Loading...</span>
 </div>
-<div class="space-y-3">
+</div>
+<div class="space-y-3" id="prayerTimesTable">
 <div class="flex justify-between items-center px-0 py-2 border-b border-white/20 text-white/60 text-xs font-medium">
 <span>PRAYER</span>
 <div class="flex gap-12 pr-2">
@@ -324,49 +324,165 @@ window.addEventListener('scroll', () => {
 <span class="w-20 text-right">IQAMA</span>
 </div>
 </div>
-<div class="flex justify-between items-center py-3">
-<span class="text-white/80 font-medium">Fajr</span>
-<div class="flex gap-12">
-<span class="text-white text-base w-20 text-right">05:42 AM</span>
-<span class="text-white font-bold text-base w-20 text-right">05:55 AM</span>
-</div>
-</div>
-<div class="flex justify-between items-center py-3 px-4 rounded-xl bg-primary-container text-white shadow-lg border border-primary-fixed/30 transform scale-[1.02]">
-<span class="font-bold flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
-Dhuhr
-</span>
-<div class="flex gap-12">
-<span class="font-normal text-lg w-20 text-right">01:15 PM</span>
-<span class="font-extrabold text-lg w-20 text-right">01:30 PM</span>
-</div>
-</div>
-<div class="flex justify-between items-center py-3">
-<span class="text-white/80 font-medium">Asr</span>
-<div class="flex gap-12">
-<span class="text-white text-base w-20 text-right">04:45 PM</span>
-<span class="text-white font-bold text-base w-20 text-right">05:00 PM</span>
-</div>
-</div>
-<div class="flex justify-between items-center py-3">
-<span class="text-white/80 font-medium">Maghrib</span>
-<div class="flex gap-12">
-<span class="text-white text-base w-20 text-right">07:22 PM</span>
-<span class="text-white font-bold text-base w-20 text-right">07:35 PM</span>
-</div>
-</div>
-<div class="flex justify-between items-center py-3">
-<span class="text-white/80 font-medium">Isha</span>
-<div class="flex gap-12">
-<span class="text-white text-base w-20 text-right">08:50 PM</span>
-<span class="text-white font-bold text-base w-20 text-right">09:05 PM</span>
-</div>
-</div>
+<div class="text-white/50 text-center py-8">Loading prayer times...</div>
 </div>
 <div class="mt-8 pt-6 border-t border-white/10 text-center">
 <p class="text-white/60 text-sm">Friday Khutbah: 1:30 PM &amp; 2:30 PM</p>
 </div>
 </div>
+
+<script>
+// Load and display prayer times from CSV
+(async function() {
+  try {
+    let csvText;
+    
+    // Try fetch first
+    try {
+      const response = await fetch('prayer_times.csv');
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      csvText = await response.text();
+    } catch (fetchError) {
+      // Fallback to XMLHttpRequest
+      csvText = await new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'prayer_times.csv', true);
+        xhr.onload = () => {
+          if (xhr.status === 200 || xhr.status === 0) resolve(xhr.responseText);
+          else reject(new Error('HTTP ' + xhr.status));
+        };
+        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.send();
+      });
+    }
+    
+    const lines = csvText.trim().split('\n');
+    if (lines.length < 2) throw new Error('CSV file is empty');
+    
+    const headers = lines[0].split(',').map(h => h.trim());
+    
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date();
+    const dateStr = today.getFullYear() + '-' + 
+                   String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+                   String(today.getDate()).padStart(2, '0');
+    
+    let todayData = null;
+    for (let i = 1; i < lines.length; i++) {
+      const values = lines[i].split(',').map(v => v.trim());
+      if (values[0] === dateStr) {
+        todayData = {};
+        headers.forEach((h, idx) => {
+          todayData[h] = values[idx] || '';
+        });
+        break;
+      }
+    }
+    
+    if (!todayData) {
+      throw new Error('Prayer times not available for ' + dateStr);
+    }
+    
+    // Prayer info
+    const prayers = [
+      { name: 'Fajr', adhan: 'fajr_begins', iqamah: 'fajr_jamah' },
+      { name: 'Dhuhr', adhan: 'zuhr_begins', iqamah: 'zuhr_jamah' },
+      { name: 'Asr', adhan: 'asr_mithl_1', iqamah: 'asr_jamah' },
+      { name: 'Maghrib', adhan: 'maghrib_begins', iqamah: 'maghrib_jamah' },
+      { name: 'Isha', adhan: 'isha_begins', iqamah: 'isha_jamah' }
+    ];
+    
+    // Get current time
+    const now = new Date();
+    const currentTime = String(now.getHours()).padStart(2, '0') + ':' + 
+                       String(now.getMinutes()).padStart(2, '0');
+    
+    // Find active prayer
+    let currentPrayer = null;
+    for (let i = 0; i < prayers.length; i++) {
+      const iqamahTime = todayData[prayers[i].iqamah];
+      const nextIqamahTime = i + 1 < prayers.length ? todayData[prayers[i + 1].iqamah] : '24:00';
+      if (currentTime >= iqamahTime && currentTime < nextIqamahTime) {
+        currentPrayer = prayers[i];
+        break;
+      }
+    }
+    
+    if (!currentPrayer) {
+      for (let i = 0; i < prayers.length; i++) {
+        if (currentTime < todayData[prayers[i].iqamah]) {
+          currentPrayer = prayers[i];
+          break;
+        }
+      }
+    }
+    
+    if (!currentPrayer) currentPrayer = prayers[0];
+    
+    // Format time (24hr to 12hr format)
+    function formatTime(timeStr) {
+      if (!timeStr) return '--:--';
+      const parts = timeStr.split(':');
+      if (parts.length < 2) return timeStr;
+      const h = parseInt(parts[0]);
+      const m = parseInt(parts[1]);
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      const displayHours = h % 12 || 12;
+      return `${displayHours.toString().padStart(2, '0')}:${String(m).padStart(2, '0')} ${ampm}`;
+    }
+    
+    // Update live badge
+    document.getElementById('livePrayerBadge').textContent = `Live ${currentPrayer.name}`;
+    
+    // Build prayer times table
+    let html = `
+      <div class="flex justify-between items-center px-0 py-2 border-b border-white/20 text-white/60 text-xs font-medium">
+        <span>PRAYER</span>
+        <div class="flex gap-12 pr-2">
+          <span class="w-20 text-right">ADHAN</span>
+          <span class="w-20 text-right">IQAMA</span>
+        </div>
+      </div>`;
+    
+    prayers.forEach(prayer => {
+      const isActive = currentPrayer && currentPrayer.name === prayer.name;
+      const adhanTime = formatTime(todayData[prayer.adhan]);
+      const iqamahTime = formatTime(todayData[prayer.iqamah]);
+      
+      if (isActive) {
+        html += `
+          <div class="flex justify-between items-center py-3 px-4 rounded-xl bg-primary-container text-white shadow-lg border border-primary-fixed/30 transform scale-[1.02]">
+            <span class="font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+              ${prayer.name}
+            </span>
+            <div class="flex gap-12">
+              <span class="font-normal text-lg w-20 text-right">${adhanTime}</span>
+              <span class="font-extrabold text-lg w-20 text-right">${iqamahTime}</span>
+            </div>
+          </div>`;
+      } else {
+        html += `
+          <div class="flex justify-between items-center py-3">
+            <span class="text-white/80 font-medium">${prayer.name}</span>
+            <div class="flex gap-12">
+              <span class="text-white text-base w-20 text-right">${adhanTime}</span>
+              <span class="text-white font-bold text-base w-20 text-right">${iqamahTime}</span>
+            </div>
+          </div>`;
+      }
+    });
+    
+    document.getElementById('prayerTimesTable').innerHTML = html;
+    
+  } catch (error) {
+    console.error('Error loading prayer times:', error);
+    document.getElementById('prayerTimesTable').innerHTML = 
+      '<div class="text-white/50 text-center py-8">Error loading prayer times</div>';
+    document.getElementById('livePrayerBadge').textContent = 'Error';
+  }
+})();
+</script>
 </div>
 </section>
 <!-- Who We Are Section (Asymmetric Grid) -->

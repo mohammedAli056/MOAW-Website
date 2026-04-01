@@ -243,7 +243,7 @@ window.addEventListener('scroll', () => {
 </div>
 </div>
 <!-- Prayer Times Table -->
-<div class="bg-surface-container rounded-lg overflow-hidden">
+<div class="bg-surface-container rounded-lg overflow-hidden" id="prayerTableContainer">
 <div class="overflow-x-auto">
 <table class="w-full">
 <thead class="bg-primary text-on-primary">
@@ -254,38 +254,159 @@ window.addEventListener('scroll', () => {
 </tr>
 </thead>
 <tbody class="divide-y divide-outline-variant/20">
-<tr class="hover:bg-surface-container-high transition-colors">
-<td class="px-6 py-4 font-semibold text-primary">Fajr</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">5:42 AM</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">5:55 AM</td>
-</tr>
-<tr class="hover:bg-surface-container-high transition-colors">
-<td class="px-6 py-4 font-semibold text-primary">Dhuhr</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">1:15 PM</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">1:30 PM</td>
-</tr>
-<tr class="hover:bg-surface-container-high transition-colors">
-<td class="px-6 py-4 font-semibold text-primary">Asr</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">4:45 PM</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">5:00 PM</td>
-</tr>
-<tr class="hover:bg-surface-container-high transition-colors">
-<td class="px-6 py-4 font-semibold text-primary">Maghrib</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">7:22 PM</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">7:35 PM</td>
-</tr>
-<tr class="hover:bg-surface-container-high transition-colors">
-<td class="px-6 py-4 font-semibold text-primary">Isha</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">8:50 PM</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">9:05 PM</td>
+<tr>
+<td colspan="3" class="px-6 py-8 text-center text-on-surface-variant">Loading prayer times...</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="bg-primary/5 px-6 py-4 border-t border-outline-variant/20">
-<p class="text-sm text-on-surface-variant"><span class="font-semibold text-primary">Note:</span> Prayer times vary daily based on sun position. Times shown are approximate for March 2026 in Woodstock, ON.</p>
+<p class="text-sm text-on-surface-variant"><span class="font-semibold text-primary">Note:</span> Prayer times vary daily based on sun position. Times shown are for Woodstock, ON.</p>
 </div>
 </div>
+
+<script>
+// Load prayer times from CSV for the table
+(async function() {
+  try {
+    let csvText;
+    
+    // Try fetch first
+    try {
+      const response = await fetch('prayer_times.csv');
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      csvText = await response.text();
+    } catch (fetchError) {
+      // Fallback to XMLHttpRequest
+      csvText = await new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'prayer_times.csv', true);
+        xhr.onload = () => {
+          if (xhr.status === 200 || xhr.status === 0) resolve(xhr.responseText);
+          else reject(new Error('HTTP ' + xhr.status));
+        };
+        xhr.onerror = () => reject(new Error('Network error'));
+        xhr.send();
+      });
+    }
+    
+    const lines = csvText.trim().split('\n');
+    if (lines.length < 2) throw new Error('CSV file is empty');
+    
+    const headers = lines[0].split(',').map(h => h.trim());
+    
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date();
+    const dateStr = today.getFullYear() + '-' + 
+                   String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+                   String(today.getDate()).padStart(2, '0');
+    
+    let todayData = null;
+    for (let i = 1; i < lines.length; i++) {
+      const values = lines[i].split(',').map(v => v.trim());
+      if (values[0] === dateStr) {
+        todayData = {};
+        headers.forEach((h, idx) => {
+          todayData[h] = values[idx] || '';
+        });
+        break;
+      }
+    }
+    
+    if (!todayData) {
+      throw new Error('Prayer times not available for ' + dateStr);
+    }
+    
+    // Prayer info
+    const prayers = [
+      { name: 'Fajr', adhan: 'fajr_begins', iqamah: 'fajr_jamah' },
+      { name: 'Dhuhr', adhan: 'zuhr_begins', iqamah: 'zuhr_jamah' },
+      { name: 'Asr', adhan: 'asr_mithl_1', iqamah: 'asr_jamah' },
+      { name: 'Maghrib', adhan: 'maghrib_begins', iqamah: 'maghrib_jamah' },
+      { name: 'Isha', adhan: 'isha_begins', iqamah: 'isha_jamah' }
+    ];
+    
+    // Get current time
+    const now = new Date();
+    const currentTime = String(now.getHours()).padStart(2, '0') + ':' + 
+                       String(now.getMinutes()).padStart(2, '0');
+    
+    // Find active prayer
+    let currentPrayer = null;
+    for (let i = 0; i < prayers.length; i++) {
+      const iqamahTime = todayData[prayers[i].iqamah];
+      const nextIqamahTime = i + 1 < prayers.length ? todayData[prayers[i + 1].iqamah] : '24:00';
+      if (currentTime >= iqamahTime && currentTime < nextIqamahTime) {
+        currentPrayer = prayers[i];
+        break;
+      }
+    }
+    
+    if (!currentPrayer) {
+      for (let i = 0; i < prayers.length; i++) {
+        if (currentTime < todayData[prayers[i].iqamah]) {
+          currentPrayer = prayers[i];
+          break;
+        }
+      }
+    }
+    
+    if (!currentPrayer) currentPrayer = prayers[0];
+    
+    // Format time (24hr to 12hr format)
+    function formatTime(timeStr) {
+      if (!timeStr) return '--:--';
+      const parts = timeStr.split(':');
+      if (parts.length < 2) return timeStr;
+      const h = parseInt(parts[0]);
+      const m = parseInt(parts[1]);
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      const displayHours = h % 12 || 12;
+      return `${displayHours.toString().padStart(2, '0')}:${String(m).padStart(2, '0')} ${ampm}`;
+    }
+    
+    // Build prayer times table
+    let html = `
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead class="bg-primary text-on-primary">
+            <tr>
+              <th class="px-6 py-4 text-left font-headline font-bold">Prayer</th>
+              <th class="px-6 py-4 text-center font-headline font-bold">Adhan</th>
+              <th class="px-6 py-4 text-center font-headline font-bold">Iqama</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-outline-variant/20">`;
+    
+    prayers.forEach(prayer => {
+      const isActive = currentPrayer && currentPrayer.name === prayer.name;
+      const adhanTime = formatTime(todayData[prayer.adhan]);
+      const iqamahTime = formatTime(todayData[prayer.iqamah]);
+      const rowClass = isActive ? 'bg-primary/10 font-bold' : 'hover:bg-surface-container-high transition-colors';
+      
+      html += `
+            <tr class="${rowClass}">
+              <td class="px-6 py-4 font-semibold text-primary">${prayer.name}</td>
+              <td class="px-6 py-4 text-center text-lg font-bold text-secondary">${adhanTime}</td>
+              <td class="px-6 py-4 text-center text-lg font-bold text-secondary">${iqamahTime}</td>
+            </tr>`;
+    });
+    
+    html += `
+          </tbody>
+        </table>
+      </div>`;
+    
+    document.getElementById('prayerTableContainer').innerHTML = html + 
+      '<div class="bg-primary/5 px-6 py-4 border-t border-outline-variant/20"><p class="text-sm text-on-surface-variant"><span class="font-semibold text-primary">Note:</span> Prayer times vary daily based on sun position. Times shown are for Woodstock, ON.</p></div>';
+    
+  } catch (error) {
+    console.error('Error loading prayer times:', error);
+    document.getElementById('prayerTableContainer').innerHTML = 
+      '<div class="overflow-x-auto"><p class="px-6 py-8 text-center text-red-600">Error loading prayer times. Please refresh the page.</p></div>';
+  }
+})();
+</script>
 </div>
 <!-- Congregation Details (Bento Style) -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
