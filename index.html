@@ -283,88 +283,88 @@ window.addEventListener('scroll', () => {
 
 <main>
 <!-- Hero Section -->
-<section class="relative min-h-[870px] flex items-center overflow-hidden">
+<section class="relative min-h-screen sm:min-h-96 md:min-h-[750px] lg:min-h-[870px] flex items-center overflow-hidden">
 <div class="absolute inset-0 z-0">
 <img alt="Main prayer hall of the Muslim Association of Woodstock with traditional red prayer carpets" class="w-full h-full object-cover brightness-[0.7]" src="cover.jpeg"/>
 <div class="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/30 to-transparent"></div>
 </div>
-<div class="relative z-10 max-w-screen-2xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-<div class="space-y-8">
-<div class="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full text-sm font-bold tracking-wide uppercase mt-12">As-salamu Alaykum</div>
-<h1 class="text-6xl md:text-8xl font-headline font-bold text-white leading-[1.1] drop-shadow-lg">
+<div class="relative z-10 max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center py-8 sm:py-12 md:py-0">
+<div class="space-y-4 sm:space-y-6 md:space-y-8">
+<div class="inline-block px-3 sm:px-4 py-1 sm:py-1.5 bg-secondary-container text-on-secondary-container rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase mt-4 sm:mt-8 md:mt-12">As-salamu Alaykum</div>
+<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-headline font-bold text-white leading-[1.1] drop-shadow-lg">
                     Find Your <span class="text-secondary-fixed">Spiritual</span> Home.
                 </h1>
-<p class="text-xl text-white/90 max-w-lg leading-relaxed font-light">
+<p class="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-lg leading-relaxed font-light">
                     The Muslim Association of Woodstock is a not-for-profit organization dedicated to making Woodstock and Oxford County a better place for all.
                 </p>
-<div class="flex gap-4">
-<a class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all active:scale-95 flex items-center gap-2" href="programs.html">
+<div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
+<a class="bg-primary text-on-primary px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-2" href="programs.html">
                         Join Our Community
-                        <span class="material-symbols-outlined">arrow_forward</span>
+                        <span class="material-symbols-outlined hidden sm:inline">arrow_forward</span>
 </a>
-<a class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all text-center" href="programs.html">
+<a class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-white/20 transition-all text-center" href="programs.html">
                         View Programs
                     </a>
 </div>
 </div>
 <!-- Live Prayer Times Card (Glassmorphism) -->
-<div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20 shadow-2xl">
-<div class="flex justify-between items-center mb-8">
-<h2 class="text-2xl font-headline font-bold text-white">Prayer Times</h2>
-<div class="flex items-center text-secondary-fixed text-sm font-bold bg-secondary/20 px-3 py-1 rounded-full">
+<div class="bg-white/10 backdrop-blur-xl rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 md:mb-8 gap-2 sm:gap-0">
+<h2 class="text-lg sm:text-xl md:text-2xl font-headline font-bold text-white">Prayer Times</h2>
+<div class="flex items-center text-secondary-fixed text-xs sm:text-sm font-bold bg-secondary/20 px-2 sm:px-3 py-1 rounded-full">
 <span class="mr-2 inline-block w-2 h-2 bg-secondary-fixed rounded-full animate-pulse"></span>
                         Live: Dhuhr
                     </div>
 </div>
-<div class="space-y-3">
-<div class="flex justify-between items-center px-0 py-2 border-b border-white/20 text-white/60 text-xs font-medium">
+<div class="space-y-2 sm:space-y-3">
+<div class="flex justify-between items-center px-0 py-1 sm:py-2 border-b border-white/20 text-white/60 text-xs font-medium">
 <span>PRAYER</span>
-<div class="flex gap-12 pr-2">
-<span class="w-20 text-right">ADHAN</span>
-<span class="w-20 text-right">IQAMA</span>
+<div class="flex gap-4 sm:gap-8 md:gap-12 pr-2">
+<span class="w-16 sm:w-20 text-right">ADHAN</span>
+<span class="w-16 sm:w-20 text-right">IQAMA</span>
 </div>
 </div>
-<div class="flex justify-between items-center py-3">
-<span class="text-white/80 font-medium">Fajr</span>
-<div class="flex gap-12">
-<span class="text-white text-base w-20 text-right">05:42 AM</span>
-<span class="text-white font-bold text-base w-20 text-right">05:55 AM</span>
+<div class="flex justify-between items-center py-2 sm:py-3">
+<span class="text-white/80 font-medium text-sm sm:text-base">Fajr</span>
+<div class="flex gap-4 sm:gap-8 md:gap-12">
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">05:42 AM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">05:55 AM</span>
 </div>
 </div>
-<div class="flex justify-between items-center py-3 px-4 rounded-xl bg-primary-container text-white shadow-lg border border-primary-fixed/30 transform scale-[1.02]">
-<span class="font-bold flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+<div class="flex justify-between items-center py-2 sm:py-3 px-2 sm:px-4 rounded-xl bg-primary-container text-white shadow-lg border border-primary-fixed/30 transform scale-[1.02]">
+<span class="font-bold flex items-center gap-1 sm:gap-2 text-sm sm:text-base">
+<span class="material-symbols-outlined text-secondary-fixed text-sm sm:text-base" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
 Dhuhr
 </span>
-<div class="flex gap-12">
-<span class="font-normal text-lg w-20 text-right">01:15 PM</span>
-<span class="font-extrabold text-lg w-20 text-right">01:30 PM</span>
+<div class="flex gap-4 sm:gap-8 md:gap-12">
+<span class="font-normal text-sm sm:text-lg w-16 sm:w-20 text-right">01:15 PM</span>
+<span class="font-extrabold text-sm sm:text-lg w-16 sm:w-20 text-right">01:30 PM</span>
 </div>
 </div>
-<div class="flex justify-between items-center py-3">
-<span class="text-white/80 font-medium">Asr</span>
-<div class="flex gap-12">
-<span class="text-white text-base w-20 text-right">04:45 PM</span>
-<span class="text-white font-bold text-base w-20 text-right">05:00 PM</span>
+<div class="flex justify-between items-center py-2 sm:py-3">
+<span class="text-white/80 font-medium text-sm sm:text-base">Asr</span>
+<div class="flex gap-4 sm:gap-8 md:gap-12">
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">04:45 PM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">05:00 PM</span>
 </div>
 </div>
-<div class="flex justify-between items-center py-3">
-<span class="text-white/80 font-medium">Maghrib</span>
-<div class="flex gap-12">
-<span class="text-white text-base w-20 text-right">07:22 PM</span>
-<span class="text-white font-bold text-base w-20 text-right">07:35 PM</span>
+<div class="flex justify-between items-center py-2 sm:py-3">
+<span class="text-white/80 font-medium text-sm sm:text-base">Maghrib</span>
+<div class="flex gap-4 sm:gap-8 md:gap-12">
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">07:22 PM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">07:35 PM</span>
 </div>
 </div>
-<div class="flex justify-between items-center py-3">
-<span class="text-white/80 font-medium">Isha</span>
-<div class="flex gap-12">
-<span class="text-white text-base w-20 text-right">08:50 PM</span>
-<span class="text-white font-bold text-base w-20 text-right">09:05 PM</span>
+<div class="flex justify-between items-center py-2 sm:py-3">
+<span class="text-white/80 font-medium text-sm sm:text-base">Isha</span>
+<div class="flex gap-4 sm:gap-8 md:gap-12">
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">08:50 PM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">09:05 PM</span>
 </div>
 </div>
 </div>
-<div class="mt-8 pt-6 border-t border-white/10 text-center">
-<p class="text-white/60 text-sm">Friday Khutbah: 1:30 PM &amp; 2:30 PM</p>
+<div class="mt-4 sm:mt-6 md:mt-8 pt-3 sm:pt-4 md:pt-6 border-t border-white/10 text-center">
+<p class="text-white/60 text-xs sm:text-sm">Friday Khutbah: 1:30 PM &amp; 2:30 PM</p>
 </div>
 </div>
 </div>
@@ -412,121 +412,121 @@ Dhuhr
 </div>
 </section>
 <!-- Community Space Gallery Section -->
-<section class="py-12 bg-surface">
-<div class="max-w-screen-2xl mx-auto px-8">
-<h2 class="text-3xl font-headline font-bold text-primary mb-8">Our Community Spaces</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="rounded-2xl overflow-hidden shadow-lg h-64 relative group">
+<section class="py-6 sm:py-9 md:py-12 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8">
+<h2 class="text-2xl sm:text-3xl font-headline font-bold text-primary mb-4 sm:mb-6 md:mb-8">Our Community Spaces</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+<div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg h-48 sm:h-56 md:h-64 relative group">
 <img alt="Main Prayer Hall" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="cover.jpeg"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-<span class="text-white font-bold px-4 py-2 bg-primary/80 rounded-lg">Main Hall</span>
+<span class="text-white font-bold px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/80 rounded-lg text-xs sm:text-sm">Main Hall</span>
 </div>
 </div>
-<div class="rounded-2xl overflow-hidden shadow-lg h-64 relative group">
+<div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg h-48 sm:h-56 md:h-64 relative group">
 <img alt="Women's Prayer Hall" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="women.jpeg"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-<span class="text-white font-bold px-4 py-2 bg-primary/80 rounded-lg">Women's Hall</span>
+<span class="text-white font-bold px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/80 rounded-lg text-xs sm:text-sm">Women's Hall</span>
 </div>
 </div>
-<div class="rounded-2xl overflow-hidden shadow-lg h-64 relative group">
+<div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg h-48 sm:h-56 md:h-64 relative group">
 <img alt="Exterior of Muslim Association of Woodstock" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="outside.jpeg"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-<span class="text-white font-bold px-4 py-2 bg-primary/80 rounded-lg">Outside</span>
+<span class="text-white font-bold px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/80 rounded-lg text-xs sm:text-sm">Outside</span>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!-- Events Section (Bento Grid Style) -->
-<section class="py-24 bg-surface-container-low">
-<div class="max-w-screen-2xl mx-auto px-8">
-<div class="flex justify-between items-end mb-16">
+<section class="py-12 sm:py-16 md:py-20 lg:py-24 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 sm:mb-12 md:mb-16 gap-3 sm:gap-0">
 <div>
-<h2 class="text-4xl font-headline font-bold text-on-surface mb-4">Upcoming Community Events</h2>
-<div class="w-24 h-1 bg-secondary rounded-full"></div>
+<h2 class="text-3xl sm:text-4xl font-headline font-bold text-on-surface mb-2 sm:mb-4">Upcoming Community Events</h2>
+<div class="w-16 sm:w-24 h-1 bg-secondary rounded-full"></div>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
 <!-- Event 1 (Featured) -->
-<div class="md:col-span-2 group relative overflow-hidden rounded-3xl h-[420px] shadow-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700">
+<div class="md:col-span-2 group relative overflow-hidden rounded-2xl md:rounded-3xl h-auto sm:h-96 md:h-[420px] shadow-lg md:shadow-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700">
 <div class="absolute inset-0 z-0">
 <img alt="River sunset background" class="absolute inset-0 w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwk-YECS13fQ9NuxEL6_2t39CKhq7DdxmYFKggAKjPcYflqF0AggjLR4WZQ76ntJorBWnRJXz9HeOvYEDtEKQJhLh8CgKknpti_L7fZ_CnwTEoyu7FuOUm67Yg4D8qtRcwqUVrkpFSTJqOP6ESJhDfy8kSshQLw09JU8Z9aBv0bpvt7sPVbl4Ty-fn0Mi1wkPqYrQAVTCfw1F76OpnFKDsFNNxIjsim9nxRCvA3Q1qsgAhzmTp3QnY5ey1ZTzzoxfi8p_b2kPkoAZ1"/>
 </div>
-<div class="relative z-10 p-6 md:p-10 max-w-2xl h-full flex flex-col justify-center">
-<div class="flex gap-2 mb-6">
-<span class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded text-xs font-bold uppercase tracking-widest">Youth</span>
-<span class="bg-white/20 backdrop-blur-md text-white px-4 py-1.5 rounded text-xs font-bold uppercase">Apr 3</span>
+<div class="relative z-10 p-4 sm:p-6 md:p-10 max-w-2xl h-full flex flex-col justify-center">
+<div class="flex flex-wrap gap-2 mb-4 sm:mb-6">
+<span class="bg-secondary-container text-on-secondary-container px-3 sm:px-4 py-1 sm:py-1.5 rounded text-xs font-bold uppercase tracking-widest">Youth</span>
+<span class="bg-white/20 backdrop-blur-md text-white px-3 sm:px-4 py-1 sm:py-1.5 rounded text-xs font-bold uppercase">Apr 3</span>
 </div>
-<h3 class="text-3xl md:text-5xl font-headline font-bold mb-6 text-white leading-tight">Why We Pray &amp; the Fiqh of Salah</h3>
-<p class="text-white/95 leading-relaxed text-base md:text-lg mb-2">Asr to Isha • Youth Program (Ages 13-25)</p>
-<p class="text-white/90 leading-relaxed text-base md:text-lg">Completely FREE • Pizza &amp; Refreshments Provided</p>
+<h3 class="text-2xl sm:text-3xl md:text-5xl font-headline font-bold mb-3 sm:mb-4 md:mb-6 text-white leading-tight">Why We Pray &amp; the Fiqh of Salah</h3>
+<p class="text-white/95 leading-relaxed text-xs sm:text-sm md:text-base lg:text-lg mb-1">Asr to Isha • Youth Program (Ages 13-25)</p>
+<p class="text-white/90 leading-relaxed text-xs sm:text-sm md:text-base lg:text-lg">Completely FREE • Pizza &amp; Refreshments Provided</p>
 </div>
-<div class="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-10 overflow-hidden rounded-2xl shadow-2xl h-[340px] w-[240px] poster-thumbnail" onclick="openPosterModal()">
+<div class="hidden md:block absolute right-6 md:right-8 top-1/2 -translate-y-1/2 z-10 overflow-hidden rounded-xl md:rounded-2xl shadow-lg md:shadow-2xl h-80 md:h-[340px] w-56 md:w-[240px] poster-thumbnail" onclick="openPosterModal()">
 <img alt="Youth Program Poster - Click to view full size" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="youth-program-poster.jpg"/>
 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-<span class="material-symbols-outlined text-white text-5xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">zoom_in</span>
+<span class="material-symbols-outlined text-white text-4xl md:text-5xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">zoom_in</span>
 </div>
 </div>
 </div>
 <!-- Event 2 -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl flex flex-col justify-between border border-outline-variant/10 shadow-sm hover:shadow-md transition-shadow">
+<div class="bg-surface-container-lowest p-4 sm:p-6 md:p-8 rounded-xl md:rounded-2xl flex flex-col justify-between border border-outline-variant/10 shadow-sm hover:shadow-md transition-shadow">
 <div>
-<div class="bg-primary/5 text-primary w-fit px-3 py-1 rounded text-xs font-bold mb-6">COMING SOON</div>
-<h3 class="text-2xl font-headline font-bold mb-4">Future Events</h3>
-<p class="text-on-surface-variant text-sm">Stay tuned for more exciting community programs and activities coming soon to MAOW.</p>
+<div class="bg-primary/5 text-primary w-fit px-2 sm:px-3 py-0.5 sm:py-1 rounded text-xs font-bold mb-3 sm:mb-4 md:mb-6">COMING SOON</div>
+<h3 class="text-lg sm:text-xl md:text-2xl font-headline font-bold mb-2 sm:mb-3 md:mb-4">Future Events</h3>
+<p class="text-on-surface-variant text-xs sm:text-sm">Stay tuned for more exciting community programs and activities coming soon to MAOW.</p>
 </div>
-<div class="mt-8 flex justify-between items-center">
-<div class="text-sm font-bold text-on-surface/60">More details soon</div>
-<a class="material-symbols-outlined bg-surface text-primary p-2 rounded-full border border-outline-variant/20 hover:bg-primary hover:text-white transition-all" href="contact.html">add</a>
+<div class="mt-4 sm:mt-6 md:mt-8 flex justify-between items-center">
+<div class="text-xs sm:text-sm font-bold text-on-surface/60">More details soon</div>
+<a class="material-symbols-outlined bg-surface text-primary p-2 rounded-full border border-outline-variant/20 hover:bg-primary hover:text-white transition-all text-sm" href="contact.html">add</a>
 </div>
 </div>
 <!-- Event 3 -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl flex flex-col justify-between border border-outline-variant/10 shadow-sm hover:shadow-md transition-shadow">
+<div class="bg-surface-container-lowest p-4 sm:p-6 md:p-8 rounded-xl md:rounded-2xl flex flex-col justify-between border border-outline-variant/10 shadow-sm hover:shadow-md transition-shadow">
 <div>
-<div class="bg-primary/5 text-primary w-fit px-3 py-1 rounded text-xs font-bold mb-6">COMING SOON</div>
-<h3 class="text-2xl font-headline font-bold mb-4">Future Events</h3>
-<p class="text-on-surface-variant text-sm">Be part of our growing list of community gatherings and spiritual programs throughout the year.</p>
+<div class="bg-primary/5 text-primary w-fit px-2 sm:px-3 py-0.5 sm:py-1 rounded text-xs font-bold mb-3 sm:mb-4 md:mb-6">COMING SOON</div>
+<h3 class="text-lg sm:text-xl md:text-2xl font-headline font-bold mb-2 sm:mb-3 md:mb-4">Future Events</h3>
+<p class="text-on-surface-variant text-xs sm:text-sm">Be part of our growing list of community gatherings and spiritual programs throughout the year.</p>
 </div>
-<div class="mt-8 flex justify-between items-center">
-<div class="text-sm font-bold text-on-surface/60">More details soon</div>
-<a class="material-symbols-outlined bg-surface text-primary p-2 rounded-full border border-outline-variant/20 hover:bg-primary hover:text-white transition-all" href="contact.html">add</a>
+<div class="mt-4 sm:mt-6 md:mt-8 flex justify-between items-center">
+<div class="text-xs sm:text-sm font-bold text-on-surface/60">More details soon</div>
+<a class="material-symbols-outlined bg-surface text-primary p-2 rounded-full border border-outline-variant/20 hover:bg-primary hover:text-white transition-all text-sm" href="contact.html">add</a>
 </div>
 </div>
 <!-- Event 4 -->
-<div class="md:col-span-2 bg-primary text-white p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-center justify-between">
+<div class="md:col-span-2 bg-primary text-white p-4 sm:p-6 md:p-8 rounded-xl md:rounded-2xl flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-center sm:items-start md:items-center justify-between">
 <div class="max-w-md">
-<h3 class="text-3xl font-headline font-bold mb-2">Explore Our Services</h3>
-<p class="text-primary-fixed/80">Discover our diverse community programs, educational initiatives, and services designed to strengthen our community through prayer, knowledge, and mutual support.</p>
+<h3 class="text-xl sm:text-2xl md:text-3xl font-headline font-bold mb-1 sm:mb-2">Explore Our Services</h3>
+<p class="text-primary-fixed/80 text-xs sm:text-sm md:text-base">Discover our diverse community programs, educational initiatives, and services designed to strengthen our community through prayer, knowledge, and mutual support.</p>
 </div>
-<a class="bg-secondary-container text-on-secondary-container px-8 py-3 rounded-xl font-bold whitespace-nowrap hover:scale-105 transition-transform active:scale-95" href="programs.html">View Programs</a>
+<a class="bg-secondary-container text-on-secondary-container px-6 sm:px-8 py-2 sm:py-3 rounded-lg md:rounded-xl font-bold whitespace-nowrap hover:scale-105 transition-transform active:scale-95 text-xs sm:text-sm md:text-base" href="programs.html">View Programs</a>
 </div>
 </div>
 </div>
 </section>
 <!-- CTA Section -->
-<section class="py-24 max-w-screen-2xl mx-auto px-8">
-<div class="bg-surface-container rounded-3xl p-12 md:p-20 relative overflow-hidden">
+<section class="py-12 sm:py-16 md:py-20 lg:py-24 max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8">
+<div class="bg-surface-container rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-20 relative overflow-hidden">
 <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-fixed/20 rounded-full blur-3xl"></div>
 <div class="relative z-10 max-w-3xl">
-<h2 class="text-5xl font-headline font-bold text-primary mb-6">Build the Future of Our Association</h2>
-<p class="text-on-surface-variant text-xl mb-12 leading-relaxed">
+<h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-primary mb-4 sm:mb-6">Build the Future of Our Association</h2>
+<p class="text-on-surface-variant text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 md:mb-12 leading-relaxed">
                     We believe in putting people first and serving all communities, irrespective of faith, gender, and ethnicity. Join us in building a tolerant, compassionate, and benevolent society.
                 </p>
-<div class="flex flex-col sm:flex-row gap-4">
-<a class="bg-primary text-on-primary px-10 py-5 rounded-xl font-bold text-xl shadow-xl hover:bg-primary-container transition-all text-center" href="donate.html">Support Now</a>
-<div class="flex items-center gap-6 px-4">
-<div class="flex gap-3">
-<div class="flex items-center justify-center w-12 h-12 bg-secondary-container/20 rounded-full">
-<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+<a class="bg-primary text-on-primary px-8 sm:px-10 py-3 sm:py-5 rounded-xl font-bold text-sm sm:text-base md:text-lg shadow-lg hover:bg-primary-container transition-all text-center" href="donate.html">Support Now</a>
+<div class="flex items-center gap-4 sm:gap-6 px-0 sm:px-4">
+<div class="flex gap-2 sm:gap-3">
+<div class="flex items-center justify-center w-10 sm:w-12 h-10 sm:h-12 bg-secondary-container/20 rounded-full">
+<span class="material-symbols-outlined text-secondary text-sm sm:text-base" style="font-variation-settings: 'FILL' 1;">favorite</span>
 </div>
-<div class="flex items-center justify-center w-12 h-12 bg-primary-container/20 rounded-full">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">people</span>
+<div class="flex items-center justify-center w-10 sm:w-12 h-10 sm:h-12 bg-primary-container/20 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm sm:text-base" style="font-variation-settings: 'FILL' 1;">people</span>
 </div>
-<div class="flex items-center justify-center w-12 h-12 bg-tertiary-container/20 rounded-full">
-<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">handshake</span>
+<div class="flex items-center justify-center w-10 sm:w-12 h-10 sm:h-12 bg-tertiary-container/20 rounded-full">
+<span class="material-symbols-outlined text-tertiary text-sm sm:text-base" style="font-variation-settings: 'FILL' 1;">handshake</span>
 </div>
 </div>
-<p class="text-on-surface-variant font-medium">Join our growing community</p>
+<p class="text-on-surface-variant font-medium text-xs sm:text-sm">Join our growing community</p>
 </div>
 </div>
 </div>
@@ -534,65 +534,39 @@ Dhuhr
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-[#dcdad2] dark:bg-emerald-950 text-[#4B3621] dark:text-[#fed65b] full-width bottom-0 mt-20">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 max-w-screen-2xl mx-auto">
-<div class="space-y-6">
-<div class="text-xl font-serif text-[#4B3621] dark:text-[#f2e8dc]">Muslim Association of Woodstock</div>
-<p class="text-[#1c1c17]/60 dark:text-emerald-100/60 leading-relaxed font-body">
-                A not-for-profit multi-cultural organization reflecting the diversity of modern-day Canada, dedicated to serving all communities.
+<footer class="bg-[#dcdad2] dark:bg-emerald-950 text-[#4B3621] dark:text-[#fed65b] full-width bottom-0 mt-12 sm:mt-16 md:mt-20">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-14 md:py-16 max-w-screen-2xl mx-auto">
+<div class="space-y-4 sm:space-y-6">
+<div class="text-base sm:text-lg font-bold text-[#4B3621] dark:text-[#f2e8dc]">MAW</div>
+<p class="font-['Manrope'] text-xs sm:text-sm leading-relaxed text-[#1c1c17]/60 dark:text-emerald-100/60">Serving the spiritual and social needs of the Muslim community in Woodstock and surrounding areas.</p>
+</div>
+<div>
+<h5 class="font-bold text-[#4B3621] dark:text-[#f2e8dc] mb-3 sm:mb-4 text-sm sm:text-base">Links</h5>
+<ul class="space-y-1.5 sm:space-y-2">
+<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#735c00] dark:hover:text-[#fed65b] transition-all text-xs sm:text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#735c00] dark:hover:text-[#fed65b] transition-all text-xs sm:text-sm" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-[#4B3621] dark:text-[#f2e8dc] mb-3 sm:mb-4 text-sm sm:text-base">Get Involved</h5>
+<ul class="space-y-1.5 sm:space-y-2">
+<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#735c00] dark:hover:text-[#fed65b] transition-all text-xs sm:text-sm" href="programs.html">Programs</a></li>
+<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#735c00] dark:hover:text-[#fed65b] transition-all text-xs sm:text-sm" href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-[#4B3621] dark:text-[#f2e8dc] mb-3 sm:mb-4 text-sm sm:text-base">Location</h5>
+<p class="text-[#1c1c17]/60 dark:text-emerald-100/60 text-xs sm:text-sm leading-relaxed">
+                    690 Sutherland Dr,<br/>
+                    Woodstock, ON N4S 4Y5
+                </p>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 border-t border-outline-variant/20">
+<p class="text-center font-['Manrope'] text-xs sm:text-sm text-[#1c1c17]/60 dark:text-emerald-100/60">
+                © 2024 Muslim Association of Woodstock. All rights reserved. CRA Charity Registration Number: 75330 3916 RR0001
             </p>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-[#4B3621]/60 cursor-pointer hover:text-primary">social_leaderboard</span>
-<span class="material-symbols-outlined text-[#4B3621]/60 cursor-pointer hover:text-primary">language</span>
-<span class="material-symbols-outlined text-[#4B3621]/60 cursor-pointer hover:text-primary">mail</span>
 </div>
-</div>
-<div class="space-y-6">
-<h4 class="font-serif font-bold text-lg">Quick Links</h4>
-<ul class="space-y-4">
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#4B3621] transition-colors" href="about.html">About</a></li>
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#4B3621] transition-colors" href="prayertime.html">Prayer Times</a></li>
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#4B3621] transition-colors" href="programs.html">Programs</a></li>
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#4B3621] transition-colors" href="contact.html">Contact</a></li>
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#4B3621] transition-colors font-bold" href="donate.html">Donate</a></li>
-</ul>
-</div>
-<div class="space-y-6">
-<h4 class="font-serif font-bold text-lg">Legal</h4>
-<ul class="space-y-4">
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#4B3621] transition-colors underline" href="#">Privacy Policy</a></li>
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#4B3621] transition-colors" href="#">Terms of Service</a></li>
-<li><a class="text-[#1c1c17]/60 dark:text-emerald-100/60 hover:text-[#4B3621] transition-colors" href="contact.html">Volunteer</a></li>
-</ul>
-</div>
-<div class="space-y-6">
-<h4 class="font-serif font-bold text-lg">Connect</h4>
-<div class="space-y-4">
-<div class="flex items-center gap-3 text-[#1c1c17]/60">
-<span class="material-symbols-outlined text-sm">location_on</span>
-<span>690 Sutherland Dr, Woodstock, ON N4S 4Y5</span>
-</div>
-<div class="flex items-center gap-3 text-[#1c1c17]/60">
-<span class="material-symbols-outlined text-sm">call</span>
-<span>(519) 788-2282</span>
-</div>
-<div class="flex items-center gap-3 text-[#1c1c17]/60">
-<span class="material-symbols-outlined text-sm">mail</span>
-<span>info@muslimassociationwoodstock.com</span>
-</div>
-<div class="mt-6 p-4 bg-primary-container/10 rounded-xl">
-<h5 class="text-sm font-bold text-primary mb-2">Join our Newsletter</h5>
-<div class="flex gap-2">
-<input class="w-full bg-white border-none rounded-lg text-xs py-2 focus:ring-primary" placeholder="Email" type="email"/>
-<button class="bg-primary text-white p-2 rounded-lg material-symbols-outlined text-xs">send</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="border-t border-[#4B3621]/10 py-8 text-center text-sm text-[#1c1c17]/40">
-        © 2024 Muslim Association of Woodstock. All rights reserved. CRA Charity Registration Number: 75330 3916 RR0001
-    </div>
 </footer>
 
 <!-- Poster Modal -->

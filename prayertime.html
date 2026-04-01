@@ -215,28 +215,28 @@ window.addEventListener('scroll', () => {
 </script>
 <main class="pt-24 pb-16">
 <!-- Hero Section -->
-<section class="max-w-7xl mx-auto px-8 mb-16">
-<div class="relative h-[400px] rounded-xl overflow-hidden group">
+<section class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mb-8 sm:mb-12 md:mb-16">
+<div class="relative h-48 sm:h-64 md:h-80 lg:h-[400px] rounded-xl overflow-hidden group">
 <img alt="Main Prayer Hall" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Interior of a serene prayer hall with soft natural light streaming through windows casting shadows on plush green carpets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMouBhfDNfg1RTYDTOoaeG_2Q3vGv67zv3zwPC_5b-ZCFaCBHHR3LmJTY1cyaCpCeGfJi4A2gdL3eQGXyj8zBImjjbgpksWMTGFM83myf0BOVCklOKyOUUJO01OOB7Ay_9Abb7SfkXfWJoNfKap3Ruqj19LaQQ9ne5yy80tctmQWCJbA_rGRwyVoS_qA4c7kvkdhc1M0F8bXZsP6koQTastcqtklB9xfdFdCayrNsULV-S89Xs4dO7YaxL_vIxNBU1QeTWKkiKHu5O"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-12">
-<h1 class="font-headline text-5xl md:text-6xl text-on-primary font-bold mb-4">Prayer Times</h1>
-<p class="text-on-primary/90 text-lg max-w-2xl font-light">"Indeed, prayer has been decreed upon the believers a decree of specified times." — Quran 4:103</p>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-6 sm:p-8 md:p-10 lg:p-12">
+<h1 class="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-on-primary font-bold mb-2 sm:mb-3 md:mb-4">Prayer Times</h1>
+<p class="text-on-primary/90 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl font-light">"Indeed, prayer has been decreed upon the believers a decree of specified times." — Quran 4:103</p>
 </div>
 </div>
 </section>
 <!-- Main Content Grid -->
-<section class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 mt-20">
+<section class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mt-10 sm:mt-14 md:mt-20">
 <!-- Daily Times Column -->
-<div class="lg:col-span-8 space-y-12">
+<div class="lg:col-span-8 space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12">
 <!-- Masjidal Integration Placeholder -->
-<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/15 relative overflow-hidden sacred-pattern">
-<div class="flex justify-between items-center mb-8">
+<div class="bg-surface-container-lowest rounded-xl p-4 sm:p-6 md:p-8 shadow-sm border border-outline-variant/15 relative overflow-hidden sacred-pattern">
+<div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 sm:gap-6 mb-4 sm:mb-6 md:mb-8">
 <div>
-<h2 class="font-headline text-3xl text-primary font-bold">Daily Schedule</h2>
-<p class="text-on-surface-variant font-medium">Woodstock, Ontario</p>
+<h2 class="font-headline text-2xl sm:text-3xl md:text-4xl text-primary font-bold">Daily Schedule</h2>
+<p class="text-on-surface-variant font-medium text-sm sm:text-base">Woodstock, Ontario</p>
 </div>
-<div class="text-right">
-<span class="inline-flex items-center px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container text-sm font-bold">
+<div class="text-left sm:text-right">
+<span class="inline-flex items-center px-3 sm:px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs sm:text-sm font-bold">
 <span class="material-symbols-outlined text-sm mr-1">location_on</span>
                                 690 Sutherland Dr
                             </span>
@@ -245,80 +245,80 @@ window.addEventListener('scroll', () => {
 <!-- Prayer Times Table -->
 <div class="bg-surface-container rounded-lg overflow-hidden">
 <div class="overflow-x-auto">
-<table class="w-full">
+<table class="w-full text-xs sm:text-sm md:text-base">
 <thead class="bg-primary text-on-primary">
 <tr>
-<th class="px-6 py-4 text-left font-headline font-bold">Prayer</th>
-<th class="px-6 py-4 text-center font-headline font-bold">Adhan</th>
-<th class="px-6 py-4 text-center font-headline font-bold">Iqama</th>
+<th class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-left font-headline font-bold">Prayer</th>
+<th class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-headline font-bold">Adhan</th>
+<th class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-headline font-bold">Iqama</th>
 </tr>
 </thead>
 <tbody class="divide-y divide-outline-variant/20">
 <tr class="hover:bg-surface-container-high transition-colors">
-<td class="px-6 py-4 font-semibold text-primary">Fajr</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">5:42 AM</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">5:55 AM</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-semibold text-primary">Fajr</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-bold text-secondary">5:42 AM</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-bold text-secondary">5:55 AM</td>
 </tr>
 <tr class="hover:bg-surface-container-high transition-colors">
-<td class="px-6 py-4 font-semibold text-primary">Dhuhr</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">1:15 PM</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">1:30 PM</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-semibold text-primary">Dhuhr</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-bold text-secondary">1:15 PM</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-bold text-secondary">1:30 PM</td>
 </tr>
 <tr class="hover:bg-surface-container-high transition-colors">
-<td class="px-6 py-4 font-semibold text-primary">Asr</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">4:45 PM</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">5:00 PM</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-semibold text-primary">Asr</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-bold text-secondary">4:45 PM</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-bold text-secondary">5:00 PM</td>
 </tr>
 <tr class="hover:bg-surface-container-high transition-colors">
-<td class="px-6 py-4 font-semibold text-primary">Maghrib</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">7:22 PM</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">7:35 PM</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-semibold text-primary">Maghrib</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-bold text-secondary">7:22 PM</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-bold text-secondary">7:35 PM</td>
 </tr>
 <tr class="hover:bg-surface-container-high transition-colors">
-<td class="px-6 py-4 font-semibold text-primary">Isha</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">8:50 PM</td>
-<td class="px-6 py-4 text-center text-lg font-bold text-secondary">9:05 PM</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 font-semibold text-primary">Isha</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-bold text-secondary">8:50 PM</td>
+<td class="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center font-bold text-secondary">9:05 PM</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="bg-primary/5 px-6 py-4 border-t border-outline-variant/20">
-<p class="text-sm text-on-surface-variant"><span class="font-semibold text-primary">Note:</span> Prayer times vary daily based on sun position. Times shown are approximate for March 2026 in Woodstock, ON.</p>
+<div class="bg-primary/5 px-4 sm:px-6 md:px-6 py-3 sm:py-4 border-t border-outline-variant/20">
+<p class="text-xs sm:text-sm text-on-surface-variant"><span class="font-semibold text-primary">Note:</span> Prayer times vary daily based on sun position. Times shown are approximate for March 2026 in Woodstock, ON.</p>
 </div>
 </div>
 </div>
 <!-- Congregation Details (Bento Style) -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
 <!-- Friday Prayer -->
-<div class="bg-primary p-8 rounded-xl shadow-lg relative overflow-hidden">
+<div class="bg-primary p-6 sm:p-7 md:p-8 rounded-xl shadow-lg relative overflow-hidden">
 <div class="relative z-10">
-<h3 class="font-headline text-2xl font-bold mb-2 text-white">Friday Congregation</h3>
-<p class="text-white/90 mb-6">Jumu'ah Prayer details for the community.</p>
-<div class="space-y-4">
-<div class="flex items-center justify-between p-4 bg-white/15 rounded-lg">
-<span class="font-bold text-white">Khutbah Starts</span>
-<span class="font-headline text-xl text-secondary-fixed">1:30 PM</span>
+<h3 class="font-headline text-xl sm:text-2xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Friday Congregation</h3>
+<p class="text-white/90 mb-4 sm:mb-5 md:mb-6 text-sm sm:text-base">Jumu'ah Prayer details for the community.</p>
+<div class="space-y-2 sm:space-y-3 md:space-y-4">
+<div class="flex items-center justify-between p-3 sm:p-4 bg-white/15 rounded-lg">
+<span class="font-bold text-white text-sm sm:text-base">Khutbah Starts</span>
+<span class="font-headline text-lg sm:text-xl md:text-xl text-secondary-fixed">1:30 PM</span>
 </div>
-<div class="flex items-center justify-between p-4 bg-white/15 rounded-lg">
-<span class="font-bold text-white">Iqamah</span>
-<span class="font-headline text-xl text-secondary-fixed">2:00 PM</span>
+<div class="flex items-center justify-between p-3 sm:p-4 bg-white/15 rounded-lg">
+<span class="font-bold text-white text-sm sm:text-base">Iqamah</span>
+<span class="font-headline text-lg sm:text-xl md:text-xl text-secondary-fixed">2:00 PM</span>
 </div>
 </div>
 </div>
-<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl opacity-10 text-white">mosque</span>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl sm:text-9xl opacity-10 text-white">mosque</span>
 </div>
 <!-- Evening Congregations -->
-<div class="bg-surface-container-high p-8 rounded-xl shadow-sm border border-outline-variant/15">
-<h3 class="font-headline text-2xl text-primary font-bold mb-2">Daily Evening</h3>
-<p class="text-on-surface-variant mb-6">Regular congregational prayers held daily.</p>
-<ul class="space-y-3">
-<li class="flex items-center gap-3 text-on-surface">
-<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<div class="bg-surface-container-high p-6 sm:p-7 md:p-8 rounded-xl shadow-sm border border-outline-variant/15">
+<h3 class="font-headline text-xl sm:text-2xl md:text-2xl text-primary font-bold mb-2 sm:mb-3">Daily Evening</h3>
+<p class="text-on-surface-variant mb-4 sm:mb-5 md:mb-6 text-sm sm:text-base">Regular congregational prayers held daily.</p>
+<ul class="space-y-2 sm:space-y-3">
+<li class="flex items-center gap-2 sm:gap-3 text-on-surface text-xs sm:text-sm md:text-base">
+<span class="material-symbols-outlined text-secondary text-sm sm:text-base" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="font-semibold">Maghrib:</span>
 <span>5 Minutes after sunset</span>
 </li>
-<li class="flex items-center gap-3 text-on-surface">
-<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">nights_stay</span>
+<li class="flex items-center gap-2 sm:gap-3 text-on-surface text-xs sm:text-sm md:text-base">
+<span class="material-symbols-outlined text-secondary text-sm sm:text-base" style="font-variation-settings: 'FILL' 1;">nights_stay</span>
 <span class="font-semibold">Isha:</span>
 <span>See schedule above</span>
 </li>
@@ -327,64 +327,64 @@ window.addEventListener('scroll', () => {
 </div>
 </div>
 <!-- Sidebar Info Column -->
-<aside class="lg:col-span-4 space-y-8">
+<aside class="lg:col-span-4 space-y-4 sm:space-y-6 md:space-y-8">
 <!-- Location Card -->
-<div class="bg-surface-container p-8 rounded-xl border border-outline-variant/15">
-<h4 class="font-headline text-xl font-bold text-primary mb-4">Visit Us</h4>
-<p class="text-on-surface-variant leading-relaxed mb-6">
+<div class="bg-surface-container p-4 sm:p-6 md:p-8 rounded-xl border border-outline-variant/15">
+<h4 class="font-headline text-lg sm:text-xl md:text-xl font-bold text-primary mb-3 sm:mb-4">Visit Us</h4>
+<p class="text-on-surface-variant leading-relaxed mb-4 sm:mb-5 md:mb-6 text-xs sm:text-sm md:text-base">
                         Muslim Association of Woodstock<br/>
                         690 Sutherland Dr,<br/>
                         Woodstock, ON N4S 4Y5
                     </p>
-<div class="aspect-square rounded-lg overflow-hidden mb-6 bg-surface-dim">
+<div class="aspect-square rounded-lg overflow-hidden mb-4 sm:mb-5 md:mb-6 bg-surface-dim">
 <img class="w-full h-full object-cover" data-alt="Clean minimalist map showing a street intersection in a quiet Canadian suburb with a marker on the mosque location" data-location="Woodstock, ON" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ5rLQwA8eZXfSGzvlXaxibAcF5vEv5BbJEq3tjybsJSF9R1-jcMry9vfn8vDc_yuqnXO_SGn9UqfxdBqoXMCyB589sDEtvNJkr2ef2RpSQ0InC3yenE9OxFtkU4wnstwKj1dl2hTt0ZUO6Xf4eCALWqVH_mWkRqPPt929F_JIXkxMCv-mxTZpzbqtDOxZCe1vhm3riE22LiXNNWylFOHPjI0yMOZVQMARiJe2_jNln8vuude2IQ8w7YYb66fE2QtNChBzOC45Erj3"/>
 </div>
-<a class="w-full py-3 bg-tertiary text-on-tertiary font-bold rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-all" href="https://www.google.com/maps/search/690+Sutherland+Dr,+Woodstock,+ON+N4S+4Y5" target="_blank">
+<a class="w-full py-2 sm:py-3 md:py-3 bg-tertiary text-on-tertiary font-bold rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-all text-xs sm:text-sm md:text-base" href="https://www.google.com/maps/search/690+Sutherland+Dr,+Woodstock,+ON+N4S+4Y5" target="_blank">
 <span class="material-symbols-outlined text-sm">directions</span>
                         Get Directions
                     </a>
 </div>
 <!-- Visual Anchor -->
 <div class="rounded-xl overflow-hidden shadow-xl">
-<img alt="Community Prayer Hall" class="w-full h-64 object-cover" data-alt="Interior architectural detail of a mosque showing ornate wooden calligraphy and a quiet prayer space with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0-S8IX-MPBeyCu-D58gGK4igcPlpoevN5tVcYk9ToPQDDqNxOBayh3H4K6sf93WOlT0DLxKMJaLCgQpjDSFu8VGwuidCmThSx0KSZbRkWBOAU_AiA3p57vLofP89DjCOMj84RR9YZPT6GrReUsqg4zWMs058pgJZtkkVOtwJRHfDjSkYu26y96NUZBCuFevP9nNoNtqvN9MUbQ0Yeo2qZUDuchZH9tY865JLxj0eJiP1699fQ-6TgxGG4KP-SnWibDUJ7xRmCR-L5"/>
-<div class="p-6 bg-surface-container-lowest">
-<p class="text-sm font-medium italic text-on-surface-variant">"The houses of Allah are filled with those who believe in the Last Day."</p>
+<img alt="Community Prayer Hall" class="w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover" data-alt="Interior architectural detail of a mosque showing ornate wooden calligraphy and a quiet prayer space with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0-S8IX-MPBeyCu-D58gGK4igcPlpoevN5tVcYk9ToPQDDqNxOBayh3H4K6sf93WOlT0DLxKMJaLCgQpjDSFu8VGwuidCmThSx0KSZbRkWBOAU_AiA3p57vLofP89DjCOMj84RR9YZPT6GrReUsqg4zWMs058pgJZtkkVOtwJRHfDjSkYu26y96NUZBCuFevP9nNoNtqvN9MUbQ0Yeo2qZUDuchZH9tY865JLxj0eJiP1699fQ-6TgxGG4KP-SnWibDUJ7xRmCR-L5"/>
+<div class="p-4 sm:p-5 md:p-6 bg-surface-container-lowest">
+<p class="text-xs sm:text-sm md:text-base font-medium italic text-on-surface-variant">"The houses of Allah are filled with those who believe in the Last Day."</p>
 </div>
 </div>
 </aside>
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-[#dcdad2] w-full pt-16 pb-8 mt-12">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 max-w-7xl mx-auto">
+<footer class="bg-[#dcdad2] w-full pt-10 sm:pt-12 md:pt-16 pb-6 sm:pb-8 mt-10 sm:mt-12 md:mt-16">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
 <div class="col-span-1 md:col-span-1">
-<div class="text-lg font-bold text-[#4B3621] mb-4">MAW</div>
-<p class="font-['Manrope'] text-sm leading-relaxed text-[#1c1c17]/60">Serving the spiritual and social needs of the Muslim community in Woodstock and surrounding areas.</p>
+<div class="text-base sm:text-lg font-bold text-[#4B3621] mb-3 sm:mb-4">MAW</div>
+<p class="font-['Manrope'] text-xs sm:text-sm leading-relaxed text-[#1c1c17]/60">Serving the spiritual and social needs of the Muslim community in Woodstock and surrounding areas.</p>
 </div>
 <div>
-<h5 class="font-bold text-[#4B3621] mb-4">Links</h5>
+<h5 class="font-bold text-[#4B3621] mb-3 sm:mb-4 text-xs sm:text-sm">Links</h5>
 <ul class="space-y-2">
-<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-sm" href="#">Privacy Policy</a></li>
-<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-sm" href="#">Terms of Service</a></li>
+<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-xs sm:text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-xs sm:text-sm" href="#">Terms of Service</a></li>
 </ul>
 </div>
 <div>
-<h5 class="font-bold text-[#4B3621] mb-4">Get Involved</h5>
+<h5 class="font-bold text-[#4B3621] mb-3 sm:mb-4 text-xs sm:text-sm">Get Involved</h5>
 <ul class="space-y-2">
-<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-sm" href="programs.html">Programs</a></li>
-<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-sm" href="contact.html">Contact</a></li>
+<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-xs sm:text-sm" href="programs.html">Programs</a></li>
+<li><a class="text-[#1c1c17]/60 hover:text-[#735c00] transition-all text-xs sm:text-sm" href="contact.html">Contact</a></li>
 </ul>
 </div>
 <div>
-<h5 class="font-bold text-[#4B3621] mb-4">Location</h5>
-<p class="text-[#1c1c17]/60 text-sm leading-relaxed">
+<h5 class="font-bold text-[#4B3621] mb-3 sm:mb-4 text-xs sm:text-sm">Location</h5>
+<p class="text-[#1c1c17]/60 text-xs sm:text-sm leading-relaxed">
                     690 Sutherland Dr,<br/>
                     Woodstock, ON N4S 4Y5
                 </p>
 </div>
 </div>
-<div class="max-w-7xl mx-auto px-8 mt-12 pt-8 border-t border-outline-variant/20">
-<p class="text-center font-['Manrope'] text-sm text-[#1c1c17]/60">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 border-t border-outline-variant/20">
+<p class="text-center font-['Manrope'] text-xs sm:text-sm text-[#1c1c17]/60">
                 © 2024 Muslim Association of Woodstock. All rights reserved.
             </p>
 </div>
