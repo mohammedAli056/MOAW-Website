@@ -212,10 +212,66 @@
 <div class="flex lg:hidden items-center gap-3">
 <a class="nav-pill-3d text-xs px-3 py-2" href="prayertime.html">Prayer Times</a>
 <a class="nav-pill-3d text-xs px-3 py-2" href="donate.html">Donate</a>
-<span class="material-symbols-outlined cursor-pointer hover:bg-[#f1eee6]/50 dark:hover:bg-emerald-900/50 p-2 transition-all">menu</span>
+<span id="mobile-menu-btn" class="material-symbols-outlined cursor-pointer hover:bg-[#f1eee6]/50 dark:hover:bg-emerald-900/50 p-2 transition-all">menu</span>
 </div>
 </div>
-</nav>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden fixed top-20 left-0 right-0 bg-[#fcf9f1]/95 dark:bg-emerald-950/95 backdrop-blur-md border-b border-[#e5dfd3]/90 z-40 lg:hidden">
+<div class="flex flex-col p-4 space-y-3 max-w-screen-2xl mx-auto w-full">
+<a class="nav-text transition-colors px-4 py-2 hover:bg-[#f1eee6] rounded" href="index.html">Home</a>
+<a class="nav-text transition-colors px-4 py-2 hover:bg-[#f1eee6] rounded" href="about.html">About</a>
+<a class="nav-text transition-colors px-4 py-2 hover:bg-[#f1eee6] rounded" href="programs.html">Programs</a>
+<a class="nav-text transition-colors px-4 py-2 hover:bg-[#f1eee6] rounded" href="contact.html">Contact</a>
+</div>
+</div>
+
+<script>
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
+
+// Close menu when clicking a link
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+  });
+});
+
+// Floating Navigation Bar on Scroll
+let lastScrollTop = 0;
+const floatingNav = document.createElement('div');
+floatingNav.id = 'floating-nav';
+floatingNav.className = 'fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-[#fcf9f1]/95 dark:bg-emerald-950/95 backdrop-blur-md border border-[#e5dfd3]/90 rounded-full shadow-lg z-30 lg:hidden opacity-0 translate-y-20 transition-all duration-300 pointer-events-none';
+floatingNav.innerHTML = `
+  <div class="flex items-center gap-1 px-4 py-3">
+    <a href="index.html" class="nav-pill-3d text-xs px-3 py-1" title="Home">Home</a>
+    <a href="about.html" class="nav-pill-3d text-xs px-3 py-1" title="About">About</a>
+    <a href="programs.html" class="nav-pill-3d text-xs px-3 py-1" title="Programs">Programs</a>
+    <a href="contact.html" class="nav-pill-3d text-xs px-3 py-1" title="Contact">Contact</a>
+  </div>
+`;
+document.body.appendChild(floatingNav);
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const floatingNav = document.getElementById('floating-nav');
+  
+  // Show floating nav after scrolling down 300px
+  if (scrollTop > 300) {
+    floatingNav.classList.remove('opacity-0', 'translate-y-20', 'pointer-events-none');
+    floatingNav.classList.add('opacity-100', 'translate-y-0');
+  } else {
+    floatingNav.classList.add('opacity-0', 'translate-y-20', 'pointer-events-none');
+    floatingNav.classList.remove('opacity-100', 'translate-y-0');
+  }
+  
+  lastScrollTop = scrollTop;
+});
+</script>
+
 <main>
 <!-- Hero Section -->
 <section class="relative min-h-[870px] flex items-center overflow-hidden">
@@ -225,7 +281,7 @@
 </div>
 <div class="relative z-10 max-w-screen-2xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 <div class="space-y-8">
-<div class="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full text-sm font-bold tracking-wide uppercase">As-salamu Alaykum</div>
+<div class="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full text-sm font-bold tracking-wide uppercase mt-12">As-salamu Alaykum</div>
 <h1 class="text-6xl md:text-8xl font-headline font-bold text-white leading-[1.1] drop-shadow-lg">
                     Find Your <span class="text-secondary-fixed">Spiritual</span> Home.
                 </h1>
@@ -330,21 +386,21 @@
 <h2 class="text-3xl font-headline font-bold text-primary mb-8">Our Community Spaces</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 <div class="rounded-2xl overflow-hidden shadow-lg h-64 relative group">
-<img alt="Authentic prayer hall interior" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/ADBb0ug0t9QZM0lKyHbHoYjbUCk6vn0dmtNUfCTTY00Y-FZQ5b8cQMrQlW0xARfYt1ucpccPS94iTtRL7o1sfEHozDd8CJlA4SJur7Q5gJTNlwA5i3F1-7RSs1uuCuOm3UQ6FtAOG7QD4JDJHmLgyiCFC8Yp4fIfSLqrRTLtW7FHQDgRgGs4xiFDnBpGbgtP65to1QjnUWXZcDN7GsDoW1dnVIBxOpe-coiCzMtBCt15-xny60tjf3Wv9QCHIyguFsTpNtyR4yDbKZNXP2w"/>
+<img alt="Main Prayer Hall" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="mainHall.jpeg"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-<span class="text-white font-bold px-4 py-2 bg-primary/80 rounded-lg">Prayer Hall</span>
+<span class="text-white font-bold px-4 py-2 bg-primary/80 rounded-lg">Main Hall</span>
 </div>
 </div>
 <div class="rounded-2xl overflow-hidden shadow-lg h-64 relative group">
-<img alt="Main community gathering area" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/ADBb0uhFxAOJuQfBSESPeU-D8cTdvEFVfRzpMPuQXHfSBp03p--Jjr61KAoy6coZU7gFMJNmW17ZIm8Yj6JyMRl2Y3-9BRQVvtOqYKKb-WDLcqy5OfFPBYPsKdyt3mgYOPtFSjMvj78R9WS7qOkt-5zoTxY6pr-oIrYnF3ZpKfCjNgihD1aVBHfcDC7Z-v7OEQ2PwyivPexMN0TTz1R--NNaAvtjsr-wbH3TxYOTjtUof7NjrODsOSQ-w2T5BA65o1P7a3kPc1XnnI9qoVA"/>
+<img alt="Women's Prayer Hall" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="women.jpeg"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-<span class="text-white font-bold px-4 py-2 bg-primary/80 rounded-lg">Community Hall</span>
+<span class="text-white font-bold px-4 py-2 bg-primary/80 rounded-lg">Women's Hall</span>
 </div>
 </div>
 <div class="rounded-2xl overflow-hidden shadow-lg h-64 relative group">
-<img alt="Prayer rows and sanctuary space" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/ADBb0uj9Xg7vQaqzZ5Zzngv7uYdBpLDqOO5T0X_RGJdee3VC9hHUQfOfKsSSJDYoTJu45lzT7rvoqXdKc7sIqa3w00bewEZHL5iF89n-tUv-USkx5Lgp5eRInoWY-r9Wu1zpa_ZLd9njdz7fP6OClA8Ox3Rut0qqkN-aGDQ799n48euHzNZV5L5YEugQsU9TmOP-K_GMg10hemtUYlGOdkim1o-GzTCihuP7wIqrw9nnlQ311Jw2qIKw1BitnI6w4QeccvJAjzNABzxQ-g0"/>
+<img alt="Exterior of Muslim Association of Woodstock" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="outside.jpeg"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-<span class="text-white font-bold px-4 py-2 bg-primary/80 rounded-lg">Worship Area</span>
+<span class="text-white font-bold px-4 py-2 bg-primary/80 rounded-lg">Outside</span>
 </div>
 </div>
 </div>
@@ -358,9 +414,6 @@
 <h2 class="text-4xl font-headline font-bold text-on-surface mb-4">Upcoming Community Events</h2>
 <div class="w-24 h-1 bg-secondary rounded-full"></div>
 </div>
-<a class="text-primary font-bold flex items-center gap-2 hover:translate-x-1 transition-transform" href="contact.html">
-                    Explore Calendar <span class="material-symbols-outlined">event</span>
-</a>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <!-- Event 1 (Featured) -->
@@ -377,7 +430,7 @@
 <p class="text-white/95 leading-relaxed text-lg mb-2">Asr to Isha • Youth Program (Ages 13-25)</p>
 <p class="text-white/90 leading-relaxed text-lg">Completely FREE • Pizza &amp; Refreshments Provided</p>
 </div>
-<div class="absolute right-8 top-1/2 -translate-y-1/2 z-10 overflow-hidden rounded-2xl shadow-2xl h-[340px] w-[240px] poster-thumbnail" onclick="openPosterModal()">
+<div class="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-10 overflow-hidden rounded-2xl shadow-2xl h-[340px] w-[240px] poster-thumbnail" onclick="openPosterModal()">
 <img alt="Youth Program Poster - Click to view full size" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="youth-program-poster.jpg"/>
 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-5xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">zoom_in</span>
@@ -387,34 +440,34 @@
 <!-- Event 2 -->
 <div class="bg-surface-container-lowest p-8 rounded-2xl flex flex-col justify-between border border-outline-variant/10 shadow-sm hover:shadow-md transition-shadow">
 <div>
-<div class="bg-primary/5 text-primary w-fit px-3 py-1 rounded text-xs font-bold mb-6">YOUTH</div>
-<h3 class="text-2xl font-headline font-bold mb-4">Basketball Tournament</h3>
-<p class="text-on-surface-variant text-sm">Sport and cultural activities are core to our community development programs.</p>
+<div class="bg-primary/5 text-primary w-fit px-3 py-1 rounded text-xs font-bold mb-6">COMING SOON</div>
+<h3 class="text-2xl font-headline font-bold mb-4">Future Events</h3>
+<p class="text-on-surface-variant text-sm">Stay tuned for more exciting community programs and activities coming soon to MAOW.</p>
 </div>
 <div class="mt-8 flex justify-between items-center">
-<div class="text-sm font-bold text-on-surface/60">Sep 22 • 10:00 AM</div>
+<div class="text-sm font-bold text-on-surface/60">More details soon</div>
 <a class="material-symbols-outlined bg-surface text-primary p-2 rounded-full border border-outline-variant/20 hover:bg-primary hover:text-white transition-all" href="contact.html">add</a>
 </div>
 </div>
 <!-- Event 3 -->
 <div class="bg-surface-container-lowest p-8 rounded-2xl flex flex-col justify-between border border-outline-variant/10 shadow-sm hover:shadow-md transition-shadow">
 <div>
-<div class="bg-primary/5 text-primary w-fit px-3 py-1 rounded text-xs font-bold mb-6">SISTERS</div>
-<h3 class="text-2xl font-headline font-bold mb-4">Tea &amp; Tarbiyah Circle</h3>
-<p class="text-on-surface-variant text-sm">Monthly gathering for spiritual growth and sisterhood over traditional refreshments.</p>
+<div class="bg-primary/5 text-primary w-fit px-3 py-1 rounded text-xs font-bold mb-6">COMING SOON</div>
+<h3 class="text-2xl font-headline font-bold mb-4">Future Events</h3>
+<p class="text-on-surface-variant text-sm">Be part of our growing list of community gatherings and spiritual programs throughout the year.</p>
 </div>
 <div class="mt-8 flex justify-between items-center">
-<div class="text-sm font-bold text-on-surface/60">Sep 18 • 6:30 PM</div>
+<div class="text-sm font-bold text-on-surface/60">More details soon</div>
 <a class="material-symbols-outlined bg-surface text-primary p-2 rounded-full border border-outline-variant/20 hover:bg-primary hover:text-white transition-all" href="contact.html">add</a>
 </div>
 </div>
 <!-- Event 4 -->
 <div class="md:col-span-2 bg-primary text-white p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-center justify-between">
 <div class="max-w-md">
-<h3 class="text-3xl font-headline font-bold mb-2">Support Our New Home</h3>
-<p class="text-primary-fixed/80">Your contribution will assist us in acquiring our own meeting space and a place of worship. All donations are eligible for a tax credit.</p>
+<h3 class="text-3xl font-headline font-bold mb-2">Explore Our Services</h3>
+<p class="text-primary-fixed/80">Discover our diverse community programs, educational initiatives, and services designed to strengthen our community through prayer, knowledge, and mutual support.</p>
 </div>
-<a class="bg-secondary-container text-on-secondary-container px-8 py-3 rounded-xl font-bold whitespace-nowrap hover:scale-105 transition-transform active:scale-95" href="donate.html">Donate via PayPal</a>
+<a class="bg-secondary-container text-on-secondary-container px-8 py-3 rounded-xl font-bold whitespace-nowrap hover:scale-105 transition-transform active:scale-95" href="programs.html">View Programs</a>
 </div>
 </div>
 </div>
@@ -431,10 +484,16 @@
 <div class="flex flex-col sm:flex-row gap-4">
 <a class="bg-primary text-on-primary px-10 py-5 rounded-xl font-bold text-xl shadow-xl hover:bg-primary-container transition-all text-center" href="donate.html">Support Now</a>
 <div class="flex items-center gap-6 px-4">
-<div class="flex -space-x-3">
-<img alt="Profile photo" class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlFBjMJHflqEysEw8EUIMUgHDHdAWat-e2R4XiYGhmILLxzu22QYSK1WwERbfhEPRtaIKwsXPVSnORcix6c-tIIY7yPsbz5r7CamgJ4fu50oGNSbZPiw4znLV4Et2ZnFJzt3DVpDGNUofJvBS8U007petGg2xUtjy9AZ5ie3npZY2rbS7BH1AZKgwVxG56hUCMoNpaeZ-NOhdygdvYYW8XcIBqnyGMjZ4y9Cwk0dhBesk5HMu2NdhvTuxjkCMjmGnGel25g13MdJ7q"/>
-<img alt="Profile photo" class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqTjXhIZ57J1SPQ6jF32J-lu4sPjltgYB1W4h7ylUu3zkjQDSym3FXyPN7IcKC2PiFxm8_H9kTY4T6SZlywRmT7_fwzlOfMLPmYDZXA8F-HNkHunPXots2Vr7bwZHzf_jfi7wMXxvfPN69u8Ep2bvoINYRK2zrHe-qrwOx9gFhzjO6HyF6KN4LAYMbOlaJoSwp5yzwpsG3DTGvQ-sEFWztE9-eeYu_ASQeL4nRmuk_21hLoIf0t2KOK399ADEf_FUc9tvBBk3nXRL7"/>
-<img alt="Profile photo" class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO7le6ZcGCBhU7njicc-aaQkTA7W5ZbPvELgA3VEEXMX4z4bAFZp6EN5Z4ukYotpZXUPakL_4J-V0aAd221faDjPiFJ_P39SeEEoqEk_agGYDZeLAzm1A2AMoUtC0s-Rf-clK5tva4GphH8qlBAR9qOBmCcxLD4l9Fo5YRka95ix2aABGrGu5thTBRkfvZuwyP3kN7VbEiYMy2vYAKtNN_NLCsd_FuUmPpehEzcZblSxE5ZQFpQdSRd0rzRNseUYf4pcIArYdN1Du7"/>
+<div class="flex gap-3">
+<div class="flex items-center justify-center w-12 h-12 bg-secondary-container/20 rounded-full">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div class="flex items-center justify-center w-12 h-12 bg-primary-container/20 rounded-full">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">people</span>
+</div>
+<div class="flex items-center justify-center w-12 h-12 bg-tertiary-container/20 rounded-full">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">handshake</span>
+</div>
 </div>
 <p class="text-on-surface-variant font-medium">Join our growing community</p>
 </div>

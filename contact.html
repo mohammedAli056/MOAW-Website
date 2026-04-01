@@ -118,10 +118,65 @@
 <div class="flex lg:hidden items-center gap-3">
 <a class="nav-pill-3d text-xs px-3 py-2" href="prayertime.html">Prayer Times</a>
 <a class="nav-pill-3d text-xs px-3 py-2" href="donate.html">Donate</a>
-<span class="material-symbols-outlined cursor-pointer hover:bg-[#f1eee6]/50 dark:hover:bg-emerald-900/50 p-2 transition-all">menu</span>
+<span id="mobile-menu-btn" class="material-symbols-outlined cursor-pointer hover:bg-[#f1eee6]/50 dark:hover:bg-emerald-900/50 p-2 transition-all">menu</span>
 </div>
 </div>
-</nav>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden fixed top-20 left-0 right-0 bg-[#fcf9f1]/95 dark:bg-emerald-950/95 backdrop-blur-md border-b border-[#e5dfd3]/90 z-40 lg:hidden">
+<div class="flex flex-col p-4 space-y-3 max-w-screen-2xl mx-auto w-full">
+<a class="nav-text transition-colors px-4 py-2 hover:bg-[#f1eee6] rounded" href="index.html">Home</a>
+<a class="nav-text transition-colors px-4 py-2 hover:bg-[#f1eee6] rounded" href="about.html">About</a>
+<a class="nav-text transition-colors px-4 py-2 hover:bg-[#f1eee6] rounded" href="programs.html">Programs</a>
+<a class="nav-text transition-colors px-4 py-2 hover:bg-[#f1eee6] rounded" href="contact.html">Contact</a>
+</div>
+</div>
+
+<script>
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
+
+// Close menu when clicking a link
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+  });
+});
+
+// Floating Navigation Bar on Scroll
+let lastScrollTop = 0;
+const floatingNav = document.createElement('div');
+floatingNav.id = 'floating-nav';
+floatingNav.className = 'fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-[#fcf9f1]/95 dark:bg-emerald-950/95 backdrop-blur-md border border-[#e5dfd3]/90 rounded-full shadow-lg z-30 lg:hidden opacity-0 translate-y-20 transition-all duration-300 pointer-events-none';
+floatingNav.innerHTML = `
+  <div class="flex items-center gap-1 px-4 py-3">
+    <a href="index.html" class="nav-pill-3d text-xs px-3 py-1" title="Home">Home</a>
+    <a href="about.html" class="nav-pill-3d text-xs px-3 py-1" title="About">About</a>
+    <a href="programs.html" class="nav-pill-3d text-xs px-3 py-1" title="Programs">Programs</a>
+    <a href="contact.html" class="nav-pill-3d text-xs px-3 py-1" title="Contact">Contact</a>
+  </div>
+`;
+document.body.appendChild(floatingNav);
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const floatingNav = document.getElementById('floating-nav');
+  
+  // Show floating nav after scrolling down 300px
+  if (scrollTop > 300) {
+    floatingNav.classList.remove('opacity-0', 'translate-y-20', 'pointer-events-none');
+    floatingNav.classList.add('opacity-100', 'translate-y-0');
+  } else {
+    floatingNav.classList.add('opacity-0', 'translate-y-20', 'pointer-events-none');
+    floatingNav.classList.remove('opacity-100', 'translate-y-0');
+  }
+  
+  lastScrollTop = scrollTop;
+});
+</script>
 
 <main class="pt-24 pb-20">
 <header class="relative px-8 py-16 sacred-pattern border-b border-outline-variant/20">
@@ -143,7 +198,7 @@
 <div>
 <p class="font-bold text-primary">Address</p>
 <p class="text-on-surface-variant mt-1">690 Sutherland Dr<br/>Woodstock, ON N4S 4Y5</p>
-<a class="inline-block mt-3 text-sm font-bold text-secondary hover:underline" href="https://maps.google.com/?q=690+Sutherland+Dr+Woodstock+ON" target="_blank" rel="noopener">Open in Maps</a>
+<a class="inline-block mt-3 text-sm font-bold text-secondary hover:underline" href="https://www.google.com/maps/search/Muslim+Association+of+Woodstock+Ontario+690+Sutherland+Dr+Woodstock+ON+N4S+4Y5" target="_blank" rel="noopener">Open in Maps</a>
 </div>
 </div>
 <div class="flex gap-4 p-6 bg-surface-container-lowest border border-outline-variant/15 rounded-xl shadow-sm">
