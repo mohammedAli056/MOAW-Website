@@ -327,8 +327,8 @@ window.addEventListener('scroll', () => {
 <div class="flex justify-between items-center py-2 sm:py-3">
 <span class="text-white/80 font-medium text-sm sm:text-base">Fajr</span>
 <div class="flex gap-4 sm:gap-8 md:gap-12">
-<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">05:42 AM</span>
-<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">05:55 AM</span>
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="fajr" data-time-type="adhan">05:42 AM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="fajr" data-time-type="iqama">05:55 AM</span>
 </div>
 </div>
 <div class="flex justify-between items-center py-2 sm:py-3 px-2 sm:px-4 rounded-xl bg-primary-container text-white shadow-lg border border-primary-fixed/30 transform scale-[1.02]">
@@ -337,29 +337,29 @@ window.addEventListener('scroll', () => {
 Dhuhr
 </span>
 <div class="flex gap-4 sm:gap-8 md:gap-12">
-<span class="font-normal text-sm sm:text-lg w-16 sm:w-20 text-right">01:15 PM</span>
-<span class="font-extrabold text-sm sm:text-lg w-16 sm:w-20 text-right">01:30 PM</span>
+<span class="font-normal text-sm sm:text-lg w-16 sm:w-20 text-right" data-prayer="dhuhr" data-time-type="adhan">01:15 PM</span>
+<span class="font-extrabold text-sm sm:text-lg w-16 sm:w-20 text-right" data-prayer="dhuhr" data-time-type="iqama">01:30 PM</span>
 </div>
 </div>
 <div class="flex justify-between items-center py-2 sm:py-3">
 <span class="text-white/80 font-medium text-sm sm:text-base">Asr</span>
 <div class="flex gap-4 sm:gap-8 md:gap-12">
-<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">04:45 PM</span>
-<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">05:00 PM</span>
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="asr" data-time-type="adhan">04:45 PM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="asr" data-time-type="iqama">05:00 PM</span>
 </div>
 </div>
 <div class="flex justify-between items-center py-2 sm:py-3">
 <span class="text-white/80 font-medium text-sm sm:text-base">Maghrib</span>
 <div class="flex gap-4 sm:gap-8 md:gap-12">
-<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">07:22 PM</span>
-<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">07:35 PM</span>
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="maghrib" data-time-type="adhan">07:22 PM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="maghrib" data-time-type="iqama">07:35 PM</span>
 </div>
 </div>
 <div class="flex justify-between items-center py-2 sm:py-3">
 <span class="text-white/80 font-medium text-sm sm:text-base">Isha</span>
 <div class="flex gap-4 sm:gap-8 md:gap-12">
-<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right">08:50 PM</span>
-<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right">09:05 PM</span>
+<span class="text-white text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="isha" data-time-type="adhan">08:50 PM</span>
+<span class="text-white font-bold text-xs sm:text-base w-16 sm:w-20 text-right" data-prayer="isha" data-time-type="iqama">09:05 PM</span>
 </div>
 </div>
 </div>
@@ -617,5 +617,6 @@ document.addEventListener('keydown', function(event) {
     }
 });
 </script>
+<script src="prayer-times.js"></script>
 
 </body></html>
