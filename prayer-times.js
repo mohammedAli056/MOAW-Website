@@ -124,17 +124,23 @@ class PrayerTimesManager {
       { name: 'isha', iqama: times.isha_jamah }
     ];
 
-    // Find which prayer to highlight based on which iqama time we've passed
-    // Default to Fajr, but move to next prayer each time we pass an iqama time
-    let currentPrayer = 'fajr';
+    // Find which iqama time we've just passed and highlight the NEXT prayer
+    let prayerToHighlight = 'fajr'; // Default if before first prayer
     
     for (let i = 0; i < prayerTimes.length; i++) {
       const [hours, minutes] = prayerTimes[i].iqama.split(':');
       const prayerIqamaTime = parseInt(hours) * 100 + parseInt(minutes);
       
-      // If current time has passed this prayer's iqama time, update current prayer
+      // If current time has passed this prayer's iqama time
       if (currentTime >= prayerIqamaTime) {
-        currentPrayer = prayerTimes[i].name;
+        // Highlight the NEXT prayer
+        if (i === prayerTimes.length - 1) {
+          // If we've passed Isha iqama, highlight Fajr (next day)
+          prayerToHighlight = 'fajr';
+        } else {
+          // Otherwise highlight the next prayer in the sequence
+          prayerToHighlight = prayerTimes[i + 1].name;
+        }
       }
     }
 
@@ -143,9 +149,9 @@ class PrayerTimesManager {
       this.removeHighlight(prayer);
     });
 
-    // Add highlighting to current prayer
-    this.addHighlight(currentPrayer);
-    this.updateLiveBadge(currentPrayer);
+    // Add highlighting to the next prayer
+    this.addHighlight(prayerToHighlight);
+    this.updateLiveBadge(prayerToHighlight);
   }
 
   updateLiveBadge(prayerName) {
