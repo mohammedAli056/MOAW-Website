@@ -2,12 +2,16 @@
 class PrayerTimesManager {
   constructor() {
     this.prayerData = null;
+    this.prayerOrder = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
     this.init();
   }
 
   async init() {
     await this.loadCSV();
     this.updatePrayerTimes();
+    this.highlightNextPrayer();
+    // Update highlighting every minute
+    setInterval(() => this.highlightNextPrayer(), 60000);
   }
 
   async loadCSV() {
@@ -96,6 +100,110 @@ class PrayerTimesManager {
     const iqamaElements = document.querySelectorAll(`[data-prayer="${prayer}"][data-time-type="iqama"]`);
     iqamaElements.forEach(el => {
       el.textContent = this.convertTo12Hour(iqamaTime);
+    });
+  }
+
+  highlightNextPrayer() {
+    const dateKey = this.getCurrentDate();
+    const times = this.prayerData[dateKey];
+    
+    if (!times) return;
+
+    // Get current time in 24-hour format
+    const now = new Date();
+    const currentHours = now.getHours();
+    const currentMinutes = now.getMinutes();
+    const currentTime = currentHours * 100 + currentMinutes; // Convert to HHMM format (e.g., 1445 for 2:45 PM)
+
+    // Prayer times mapping with their iqama times
+    const prayerTimes = [
+      { name: 'fajr', iqama: times.fajr_jamah },
+      { name: 'dhuhr', iqama: times.zuhr_jamah },
+      { name: 'asr', iqama: times.asr_jamah },
+      { name: 'maghrib', iqama: times.maghrib_jamah },
+      { name: 'isha', iqama: times.isha_jamah }
+    ];
+
+    // Find next prayer
+    let nextPrayer = null;
+    for (let prayer of prayerTimes) {
+      const [hours, minutes] = prayer.iqama.split(':');
+      const prayerTime = parseInt(hours) * 100 + parseInt(minutes);
+
+      if (prayerTime > currentTime) {
+        nextPrayer = prayer.name;
+        break;
+      }
+    }
+
+    // If no prayer found (after Isha), next is Fajr
+    if (!nextPrayer) {
+      nextPrayer = 'fajr';
+    }
+
+    // Remove highlighting from all prayers
+    this.prayerOrder.forEach(prayer => {
+      this.removeHighlight(prayer);
+    });
+
+    // Add highlighting to next prayer
+    this.addHighlight(nextPrayer);
+  }
+
+  addHighlight(prayerName) {
+    // Find all elements with this prayer
+    const prayerElements = document.querySelectorAll(`[data-prayer="${prayerName}"]`);
+    
+    prayerElements.forEach(el => {
+      // For table rows
+      if (el.tagName === 'TD') {
+        const row = el.closest('tr');
+        if (row) {
+          row.classList.add('prayer-highlight');
+        }
+      }
+      // For divs (index.html)
+      else if (el.tagName === 'SPAN' || el.tagName === 'DIV') {
+        // Find the parent flex container (the immediate parent div that contains both prayer name and times)
+        let parent = el.parentElement;
+        while (parent && parent.tagName !== 'SECTION') {
+          if (parent.classList.contains('flex') && parent.classList.contains('justify-between')) {
+            parent.classList.add('prayer-highlight');
+            break;
+          }
+          parent = parent.parentElement;
+        }
+      }
+      
+      // Add highlighted class to the element itself
+      el.classList.add('highlighted');
+    });
+  }
+
+  removeHighlight(prayerName) {
+    const prayerElements = document.querySelectorAll(`[data-prayer="${prayerName}"]`);
+    
+    prayerElements.forEach(el => {
+      // For table rows
+      if (el.tagName === 'TD') {
+        const row = el.closest('tr');
+        if (row) {
+          row.classList.remove('prayer-highlight');
+        }
+      }
+      // For divs (index.html)
+      else if (el.tagName === 'SPAN' || el.tagName === 'DIV') {
+        let parent = el.parentElement;
+        while (parent && parent.tagName !== 'SECTION') {
+          if (parent.classList.contains('flex') && parent.classList.contains('justify-between')) {
+            parent.classList.remove('prayer-highlight');
+            break;
+          }
+          parent = parent.parentElement;
+        }
+      }
+      
+      el.classList.remove('highlighted');
     });
   }
 }
