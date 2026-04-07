@@ -27,7 +27,7 @@ ASR_24 = convert_to_24(ASR)
 ISHA_24 = convert_to_24(ISHA)
 
 # === DATE RANGE ===
-today = datetime.today().date()
+today = (datetime.today() - timedelta(days=1)).date()
 end_date = today + timedelta(days=DAYS_TO_UPDATE)
 
 print(f"Updating from {today} to {end_date}")
